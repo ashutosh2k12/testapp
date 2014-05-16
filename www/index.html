@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="topcoat/css/topcoat-mobile-dark.min.css">
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="jqm/jquery.mobile-min.css">
 		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
 		<title>Your New Application</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -12,11 +12,10 @@
 			*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
 			input, textarea  { -webkit-user-select:text; }
 		</style>
-		
 		<script type="application/javascript" src="js/jquery.min.js"></script>
-		<script type="application/javascript" src="jqm/jquery.mobile-min.js" data-ver="0"></script>
+		<script type="application/javascript" src="marginal/marginal-position.min.js"></script>
 		<script type="application/javascript" src="js/index_user_scripts.js"></script>
-		<script type="application/javascript" src="js/jqm_subpage.js"></script>
+		<script type="application/javascript" src="js/tc_subpage.js"></script>
 		  <!--- Phonegap JS --->
 		  <script type="text/javascript" src="phonegap.js"></script>
 		  <script type="text/javascript" src="PushNotification.js"></script>
@@ -24,10 +23,10 @@
 <body>
 <!-- content goes here-->
 		<div class="uwrap">
-			<div class="upage" id="mainpage" data-role="page">
+			<div class="upage" id="mainpage">
 				<div class="upage-outer">
-					<div data-role="header" class="container-group inner-element uib_w_1" data-uib="jquery_mobile/header" data-ver="0" data-theme="a" data-position="fixed">
-						<h1>Notifi Solutions</h1>
+					<div class="uib-header header-bg container-group inner-element uib_w_1" data-uib="layout/header" data-ver="0">
+						<h2>Notifi Solutions</h2>
 						<div class="widget-container wrapping-col single-centered"></div>
 						<div class="widget-container content-area horiz-area wrapping-col left"></div>
 						<div class="widget-container content-area horiz-area wrapping-col right"></div>
@@ -38,29 +37,16 @@
 							<div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
 								<div class="widget-container content-area vertical-col">
 
-									<div class="widget uib_w_2 d-margins" data-uib="media/text" data-ver="0">
-										<div class="widget-container left-receptacle"></div>
-										<div class="widget-container right-receptacle"></div>
-										<div>
-											<p>Notifi Solutions</p>
-										</div>
-									</div><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-
-						<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<div class="table-thing with-label widget uib_w_3 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+									<div class="table-thing widget uib_w_3 d-margins" data-uib="topcoat/input" data-ver="0">
 										<label class="narrow-control label-inline">Email</label>
-										<input class="wide-control" placeholder="Your Email" type="text" data-mini="true">
+										<input class="wide-control topcoat-text-input" type="text" placeholder="Email">
 									</div>
-									<div class="table-thing with-label widget uib_w_4 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+									<div class="table-thing widget uib_w_4 d-margins" data-uib="topcoat/input" data-ver="0">
 										<label class="narrow-control label-inline">PIN</label>
-										<input class="wide-control" placeholder="Your PIN" type="text" data-mini="true">
-									</div><a class="widget uib_w_5 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="lock" href="#uib_page_1" data-transition="fade">login</a><span class="uib_shim"></span>
+										<input class="wide-control topcoat-text-input" type="text" placeholder="Application PIN">
+									</div>
+									<button class="widget uib_w_5 d-margins topcoat-button" data-uib="topcoat/button" data-ver="0">login</button>
+									<span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
@@ -68,25 +54,37 @@
 					</div>
 					<!-- /upage-content -->
 
+					<div class="uib-footer uib-footer-fixed footer-bg container-group inner-element uib_w_2" data-uib="layout/footer" data-ver="0">
+						<h2>thanks</h2>
+						<div class="widget-container wrapping-col single-centered"></div>
+						<div class="widget-container content-area horiz-area wrapping-col left"></div>
+						<div class="widget-container content-area horiz-area wrapping-col right"></div>
+					</div>
 				</div>
 				<!-- /upage-outer -->
 
 			</div>
-			<div class="upage" id="uib_page_2" data-role="page">
+			<div class="upage hidden" id="uib_page_2">
 				<div class="upage-outer">
-					<div data-role="header" class="container-group inner-element uib_w_11" data-uib="jquery_mobile/header" data-ver="0" data-theme="a" data-position="fixed">
-						<h1>Notifi Solutions</h1>
+					<div class="uib-header header-bg container-group inner-element uib_w_11" data-uib="layout/header" data-ver="0">
+						<h2>Notifi Solutions</h2>
 						<div class="widget-container wrapping-col single-centered"></div>
 						<div class="widget-container content-area horiz-area wrapping-col left"></div>
 						<div class="widget-container content-area horiz-area wrapping-col right"></div>
 					</div>
 					<div id="uib_page_2sub" class="upage-content ">
 
-						<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
+						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
 								<div class="widget-container content-area vertical-col">
 
-									<div class="widget uib_w_13 ui-content no_wrap outset-margin d-margins" data-uib="jquery_mobile/listview" data-ver="0" data-role="list-divider"><span>Listitem 1</span>
+									<div class="topcoat-list__container widget uib_w_13 d-margins" data-uib="topcoat/list_group" data-ver="0">
+										<h3 class="topcoat-list__header">Pushes</h3>
+										<ul class="topcoat-list">
+											<li class="topcoat-list__item widget uib_w_14" data-uib="topcoat/list_item" data-ver="0">Push 1</li>
+											<li class="topcoat-list__item widget uib_w_15" data-uib="topcoat/list_item" data-ver="0">Push 2</li>
+											<li class="topcoat-list__item widget uib_w_16" data-uib="topcoat/list_item" data-ver="0">Push 3</li>
+										</ul>
 									</div><span class="uib_shim"></span>
 								</div>
 							</div>
@@ -95,24 +93,25 @@
 					</div>
 					<div id="uib_page_3" class="upage-content hidden">
 
-						<div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
+						<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+							<div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
 								<div class="widget-container content-area vertical-col">
 
-									<div class="widget uib_w_15 d-margins" data-uib="media/text" data-ver="0">
+									<div class="widget uib_w_17 d-margins" data-uib="media/text" data-ver="0">
 										<div class="widget-container left-receptacle"></div>
 										<div class="widget-container right-receptacle"></div>
 										<div>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+											<p>The Push have been received and transferred</p>
 										</div>
-									</div><a class="widget uib_w_16 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="a" data-icon="carat-l">back</a><span class="uib_shim"></span>
+									</div>
+									<button class="widget uib_w_18 d-margins topcoat-button" data-uib="topcoat/button" data-ver="0">BAck</button><span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
 						</div>
 					</div>
-					<div data-role="footer" data-position="fixed" class="container-group inner-element uib_w_12" data-uib="jquery_mobile/footer" data-ver="0">
-						<h1>Copyright claim</h1>
+					<div class="uib-footer uib-footer-fixed footer-bg container-group inner-element uib_w_12" data-uib="layout/footer" data-ver="0">
+						<h2>thanks</h2>
 						<div class="widget-container wrapping-col single-centered"></div>
 						<div class="widget-container content-area horiz-area wrapping-col left"></div>
 						<div class="widget-container content-area horiz-area wrapping-col right"></div>
@@ -120,35 +119,37 @@
 				</div>
 				<!-- /upage-outer -->
 			</div>
-			<div class="upage" id="uib_page_1" data-role="page">
+			<div class="upage hidden" id="uib_page_1">
 				<div class="upage-outer">
-					<div data-role="header" class="container-group inner-element uib_w_6" data-uib="jquery_mobile/header" data-ver="0" data-theme="a" data-position="fixed">
-						<h1>Notifi Solutions</h1>
+					<div class="uib-header header-bg container-group inner-element uib_w_6" data-uib="layout/header" data-ver="0">
+						<h2>Notifi Solutions</h2>
 						<div class="widget-container wrapping-col single-centered"></div>
 						<div class="widget-container content-area horiz-area wrapping-col left"></div>
 						<div class="widget-container content-area horiz-area wrapping-col right"></div>
 					</div>
 					<div id="uib_page_1sub" class="upage-content ">
 
-						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
+						<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+							<div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
 								<div class="widget-container content-area vertical-col">
 
-									<div class="table-thing with-label widget uib_w_8 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+									<div class="table-thing widget uib_w_8 d-margins" data-uib="topcoat/input" data-ver="0">
 										<label class="narrow-control label-inline">Mobile</label>
-										<input class="wide-control" placeholder="10 digit mobile number" type="text" data-mini="true">
+										<input class="wide-control topcoat-text-input" type="text" placeholder="10 digit mobile number">
 									</div>
-									<div class="table-thing with-label widget uib_w_9 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+									<div class="table-thing widget uib_w_9 d-margins" data-uib="topcoat/input" data-ver="0">
 										<label class="narrow-control label-inline">Email</label>
-										<input class="wide-control" placeholder="Your Email" type="text" data-mini="true">
-									</div><a class="widget uib_w_10 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="a" data-icon="user" href="#uib_page_2" data-transition="fade">Register</a><span class="uib_shim"></span>
+										<input class="wide-control topcoat-text-input" type="text" placeholder="Your Email ID">
+									</div>
+									<button class="widget uib_w_10 d-margins topcoat-button" data-uib="topcoat/button" data-ver="0">register</button>
+									<span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
 						</div>
 					</div>
-					<div data-role="footer" data-position="fixed" class="container-group inner-element uib_w_7" data-uib="jquery_mobile/footer" data-ver="0">
-						<h1>copyright 2014</h1>
+					<div class="uib-footer uib-footer-fixed footer-bg container-group inner-element uib_w_7" data-uib="layout/footer" data-ver="0">
+						<h2>thanks</h2>
 						<div class="widget-container wrapping-col single-centered"></div>
 						<div class="widget-container content-area horiz-area wrapping-col left"></div>
 						<div class="widget-container content-area horiz-area wrapping-col right"></div>
@@ -159,7 +160,6 @@
 			<!-- /upage -->
 
 		</div>
-		<!-- /uwrap -->
 </body>
 
 </html>
