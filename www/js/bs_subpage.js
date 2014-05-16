@@ -1,5 +1,5 @@
 
-function activate_subpage(sel, have_state)
+window.activate_subpage = function(sel, have_state)
 {
     var $dn = $(sel);
     $dn.parents(".upage").find(".upage-content").addClass("hidden");
@@ -20,7 +20,7 @@ function activate_subpage(sel, have_state)
 
 
 /* this function not used by jQueryMobile or Intel App Framework */
-function activate_page(sel, have_state)
+window.activate_page = function(sel, have_state)
 {
     var $dn = $(sel);
     var is_vis = $dn.is(":visible");
