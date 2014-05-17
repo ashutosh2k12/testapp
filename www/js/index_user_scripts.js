@@ -130,6 +130,7 @@ var app = {
 						  var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
+					//	  $.ui.updateContentDiv("#myDiv","This is the new content");
                           
             break;
  
