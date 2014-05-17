@@ -411,3 +411,8 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
+
+h1.push-container{
+	text-align:center;
+	border-bottom: 1px #ccc solid;
+}
