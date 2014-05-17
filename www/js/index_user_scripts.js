@@ -27,7 +27,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
-
+			$.ui.showMask("Verifying...");
 			//Check data
 			$.ajax({
 			   type: "POST",
@@ -35,6 +35,7 @@ function register_event_handlers()
 			   data: {email:admin_email, pin: admin_pin, hardwareid: token },
 			   dataType: "json",
 			   success: function(data) {
+				$.ui.hideMask();
 					 if(data.error==0){
 						if(data.hardware==true){	
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
@@ -50,6 +51,7 @@ function register_event_handlers()
 			   error: function(xhr, ajaxOptions, thrownError) {
 					 alert(xhr.status);
 					 alert(thrownError);
+					 $.ui.hideMask();
 			   }
 			})
         });
@@ -59,7 +61,7 @@ function register_event_handlers()
         {
 			 //Get Prev Data
             var user_cell = $('input#mobile').val(); //Get email and check if that is true
-			alert('user entered='+user_cell+' and token='+token);
+			$.ui.showMask("Registering...");
 			//Check data
 			$.ajax({
 			   type: "POST",
@@ -67,6 +69,7 @@ function register_event_handlers()
 			   data: {number:user_cell, parentid: parentid, hardwareid: token, appid: appid },
 			   dataType: "json",
 			   success: function(data) {
+					$.ui.hideMask();
 					 if(data.error==0){
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
 					 }else{ alert('You got some error'); return false; }
@@ -75,6 +78,7 @@ function register_event_handlers()
 			   error: function(xhr, ajaxOptions, thrownError) {
 					 alert(xhr.status);
 					 alert(thrownError);
+					 $.ui.hideMask();
 			   }
 			})
 		});
@@ -126,7 +130,7 @@ var app = {
  
             case 'message':
 						  // this is the actual push notification. its format depends on the data model from the push server
-						  alert('push message = '+e.message);
+					//	  alert('push message = '+e.message);
 						  var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
