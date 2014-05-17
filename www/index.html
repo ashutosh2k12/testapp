@@ -22,7 +22,7 @@
 		  <script type="text/javascript" src="phonegap.js"></script>
 		  <script type="text/javascript" src="PushNotification.js"></script>
 	</head>
-	<body id="afui" class="android light">
+	<body id="afui" class="android light" onload="app.initialize();">
 		<!-- Light theme --->
 		<!-- content goes here-->
 		<div class="uwrap" id="content">
@@ -48,7 +48,7 @@
 									<div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/input" data-ver="0">
 										<label class="narrow-control label-inline">PIN</label>
 										<input class="wide-control" id="admin_pin" placeholder="PIN" type="password">
-									</div><a class="button widget uib_w_5 d-margins icon key green" id="one-screen" data-uib="app_framework/button" data-ver="0" href="#uib_page_1" data-transition="slide">login</a><span class="uib_shim"></span>
+									</div><a class="button widget uib_w_5 d-margins icon key green" id="one-screen" data-uib="app_framework/button" data-ver="0">login</a><span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
@@ -132,7 +132,7 @@
 									<div class="table-thing with-label widget uib_w_8 d-margins" data-uib="app_framework/input" data-ver="0">
 										<label class="narrow-control label-inline">Mobile</label>
 										<input class="wide-control" id="mobile" placeholder="10 digit mobile number" type="text">
-									</div><a class="button widget uib_w_16 d-margins" id="two-screen" data-uib="app_framework/button" data-ver="0" href="#uib_page_2" data-transition="slide">Button</a><span class="uib_shim"></span>
+									</div><a class="button widget uib_w_16 d-margins" id="two-screen" data-uib="app_framework/button" data-ver="0">Button</a><span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
