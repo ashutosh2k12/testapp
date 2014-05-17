@@ -27,6 +27,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
+			$.ui.blockUI(0.9);
 			$.ui.showMask("Verifying...");
 			//Check data
 			$.ajax({
@@ -36,6 +37,7 @@ function register_event_handlers()
 			   dataType: "json",
 			   success: function(data) {
 				$.ui.hideMask();
+				$.ui.unblockUI();
 					 if(data.error==0){
 						if(data.hardware==true){	
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
@@ -52,6 +54,7 @@ function register_event_handlers()
 					 alert(xhr.status);
 					 alert(thrownError);
 					 $.ui.hideMask();
+					 $.ui.unblockUI();
 			   }
 			})
         });
@@ -61,6 +64,7 @@ function register_event_handlers()
         {
 			 //Get Prev Data
             var user_cell = $('input#mobile').val(); //Get email and check if that is true
+			$.ui.blockUI(0.9)
 			$.ui.showMask("Registering...");
 			//Check data
 			$.ajax({
@@ -70,6 +74,7 @@ function register_event_handlers()
 			   dataType: "json",
 			   success: function(data) {
 					$.ui.hideMask();
+					$.ui.unblockUI();
 					 if(data.error==0){
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
 					 }else{ alert('You got some error'); return false; }
@@ -79,6 +84,7 @@ function register_event_handlers()
 					 alert(xhr.status);
 					 alert(thrownError);
 					 $.ui.hideMask();
+					 $.ui.unblockUI();
 			   }
 			})
 		});
@@ -111,7 +117,7 @@ var app = {
     },
         // result contains any message sent from the plugin call
         successHandler: function(result) {
-                alert('Callback Success! Result = '+result)
+              //  alert('Callback Success! Result = '+result)
         },
         //Any errors? 
         errorHandler:function(error) {
