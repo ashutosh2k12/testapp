@@ -126,7 +126,7 @@ var app = {
  
             case 'message':
 						  // this is the actual push notification. its format depends on the data model from the push server
-					//	  alert('push message = '+e.message);
+						  alert('push message = '+e.message);
 						  var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
