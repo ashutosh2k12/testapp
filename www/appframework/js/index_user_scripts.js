@@ -136,10 +136,10 @@ function register_event_handlers()
 		$(document).on("click", ".uib_w_95", function(evt)
         {
 		//	uib_sb.toggle_sidebar($(".uib_w_22"));  	
-		//	alert('Hello world');
+			alert('Hello world');
 		//	$.ui.toggleSideMenu();
         
-         uib_sb.toggle_sidebar($(".uib_w_256"));  
+         uib_sb.toggle_sidebar($(".uib_w_22")); 
         });
 
 }
