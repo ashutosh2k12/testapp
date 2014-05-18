@@ -1,191 +1,166 @@
 <!DOCTYPE html>
+<!--HTML5 doctype-->
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="app_framework/css/af.ui.min.css">
-		<link rel="stylesheet" type="text/css" href="app_framework/css/icons.min.css">
-		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
-		<title>Your New Application</title>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
-		<style type="text/css">
-			/* Prevent copy paste for all elements except text fields */
-			*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
-			input, textarea  { -webkit-user-select:text; }
-		</style>
-		<script type="text/javascript" src="phonegap.js"></script>
-		<script type="text/javascript" src="PushNotification.js"></script>
-		<script type="application/javascript" src="js/jquery.min.js"></script>
-		<script type="application/javascript" src="js/jq.appframework.js"></script>
-		<script type="application/javascript" src="app_framework/appframework.ui.js"></script>
-		<script type="application/javascript" src="js/index_user_scripts.js"></script>
-		<script type="application/javascript" src="js/af_subpage.js"></script>
-		  <!--- Phonegap JS --->
-		<script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
-		  <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
-		  <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
-		  <script type="application/javascript" src="sidebar/js/swipe.js"></script>
-		  
-	</head>
-	<body id="afui" class="android light" onload="app.initialize();">
-		<!-- Light theme --->
-		<div class="uwrap" id="content">
-			<div class="upage panel" id="mainpage" data-header="af-header-0" data-footer="af-footer-0">
-				<div class="upage-outer">
-					<header class="container-group inner-element uib_w_9" data-uib="app_framework/header" data-ver="0" id="af-header-0">
-						<h1>Notify Solutions</h1>
-						<div class="widget-container wrapping-col single-centered"></div>
-						<div class="widget-container content-area horiz-area wrapping-col left"></div>
-						<div class="widget-container content-area horiz-area wrapping-col right"></div>
-					</header>
+ <head>
+  <link rel="stylesheet" type="text/css" href="app_framework/css/af.ui.min.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="app_framework/css/af.ui.css">
+  <link rel="stylesheet" type="text/css" href="app_framework/css/icons.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+  <title>Your New Application</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <style type="text/css">
+   /* Prevent copy paste for all elements except text fields */
+   		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+   		input, textarea  { -webkit-user-select:text; }
+  </style>
+  <script type="text/javascript" src="phonegap.js"></script>
+  <script type="text/javascript" src="PushNotification.js"></script>
 
-					<div class="upage-content" id="mainsub">
+  <script type="application/javascript" src="app_framework/appframework.ui.min.js"></script>
+  <script type="application/javascript" src="js/jquery.min.js"></script>
+  <script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
+  <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
+  <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+  <script type="application/javascript" src="sidebar/js/swipe.js"></script>
+  <script type="application/javascript" src="js/index_user_scripts.js"></script>
+  <script type="application/javascript" src="js/af_subpage.js"></script>
+ </head>
 
-						<div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
+ <body id="afui">
 
-									<div class="table-thing with-label widget uib_w_3 d-margins" data-uib="app_framework/input" data-ver="0">
-										<label class="narrow-control label-inline">Email</label>
-										<input class="wide-control" id="admin_email" placeholder="Administrator Email" type="text">
-									</div>
-									<div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/input" data-ver="0">
-										<label class="narrow-control label-inline">PIN</label>
-										<input class="wide-control" id="admin_pin" placeholder="PIN" type="password">
-									</div><a class="button widget uib_w_5 d-margins icon key green" id="one-screen" data-uib="app_framework/button" data-ver="0">login</a><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-					<!-- /upage-content -->
 
-					<footer class="inner-element uib_w_10" data-uib="app_framework/footer" data-ver="0" id="af-footer-0"></footer>
-				</div>
-				<!-- /upage-outer -->
 
-			</div>
-			<div class="upage panel" id="uib_page_3" data-load="showPushes" data-header="af-header-2" data-footer="af-footer-3">
-				<div class="upage-outer">
-					<header class="container-group inner-element uib_w_17" data-uib="app_framework/header" data-ver="0" id="af-header-2">
-						<h1>Notify Solutions</h1>
-						<div class="widget-container wrapping-col single-centered"></div>
-						<div class="widget-container content-area horiz-area wrapping-col left"></div>
-						<div class="widget-container content-area horiz-area wrapping-col right"></div>
-					</header>
-					<div id="uib_page_3sub" class="upage-content ">
-						<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<div class="widget uib_w_19 d-margins" data-uib="media/text" data-ver="0">
-										<div class="widget-container left-receptacle"></div>
-										<div class="widget-container right-receptacle"></div>
-										<div>
-											<p>This is a push</p>
-										</div>
-									</div><a class="button widget uib_w_20 d-margins" data-uib="app_framework/button" data-ver="0" href="#uib_page_2" data-transition="pop">Go back</a><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-					<footer class="inner-element uib_w_18" data-uib="app_framework/footer" data-ver="0" id="af-footer-3"></footer>
-				</div>
-				<!-- /upage-outer -->
-			</div>
-			<div class="upage panel" id="uib_page_2" data-load="showApps" data-header="af-header-1" data-footer="af-footer-2">
-				<div class="upage-outer">
-					<header class="container-group inner-element uib_w_11" data-uib="app_framework/header" data-ver="0" id="af-header-1">
-						<h1>Notify Solutions</h1>
-						<div class="widget-container wrapping-col single-centered"></div>
-						<div class="widget-container content-area horiz-area wrapping-col left">
-						<div class="uib-sprite-button default-sprite-button hover-sprite-button active-sprite-button sprite-sizing default-text widget uib_w_27 d-margins" data-uib="media/sprite_button" data-ver="0">
-								<div class="uib-sprite">
-									<a href="#">menu</a>
-								</div>
-							</div>
-						</div>
-						<div class="widget-container content-area horiz-area wrapping-col right"></div>
-					</header>
-					<div id="uib_page_2sub" class="upage-content ">
 
-						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<h1 class="push-container">Application</h1>
-									<ul id="pushes" class="list widget uib_w_13 d-margins" data-uib="app_framework/listview" data-ver="0">
-										
-									</ul><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-					<div class="inner-element uib_w_22 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="0" data-anim="{'style':'push', 'v':200, 'side':'left'}">
- -						<div class="sidebar-content">
- -
- -							<div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
- -								<div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
- -									<div class="widget-container content-area vertical-col">
- -
- -										<div class="widget uib_w_23 d-margins" data-uib="media/text" data-ver="0">
- -											<div class="widget-container left-receptacle"></div>
- -											<div class="widget-container right-receptacle"></div>
- -											<div>
- -												<p>Menu</p>
- -											</div>
- -										</div><span class="uib_shim"></span>
- -									</div>
- -								</div>
- -								<span class="uib_shim"></span>
- -							</div>
- -
- -							<div class="grid grid-pad urow uib_row_6 row-height-6" data-uib="layout/row" data-ver="0">
- -								<div class="col uib_col_6 col-0_12-12" data-uib="layout/col" data-ver="0">
- -									<div class="widget-container content-area vertical-col">
- -
- -										<ul class="list widget uib_w_24 d-margins" data-uib="app_framework/listview" data-ver="0">
- -											<li class="widget uib_w_25" data-uib="app_framework/listitem" data-ver="0"><a>List Item</a>
- -											</li>
- -											<li class="widget uib_w_26" data-uib="app_framework/listitem" data-ver="0"><a>List Item</a>
- -											</li>
- -										</ul><span class="uib_shim"></span>
- -									</div>
- -								</div>
- -								<span class="uib_shim"></span>
- -							</div>
- -						</div>
- -					</div>
-					<footer class="inner-element uib_w_12" data-uib="app_framework/footer" data-ver="0" id="af-footer-2"></footer>
-				</div>
-				<!-- /upage-outer -->
-			</div>
 
-			<div class="upage panel" id="uib_page_1" data-header="af-header-1" data-footer="af-footer-1">
-				<div class="upage-outer">
 
-					<div id="uib_page_1sub" class="upage-content ">
 
-						<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
 
-									<div class="table-thing with-label widget uib_w_8 d-margins" data-uib="app_framework/input" data-ver="0">
-										<label class="narrow-control label-inline">Mobile</label>
-										<input class="wide-control" id="mobile" placeholder="10 digit mobile number" type="text">
-									</div><a class="button widget uib_w_16 d-margins" id="two-screen" data-uib="app_framework/button" data-ver="0">Button</a><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-					<footer class="inner-element uib_w_7" data-uib="app_framework/footer" data-ver="0" id="af-footer-1"></footer>
-				</div>
-				<!-- /upage-outer -->
-			</div>
-			<!-- /upage -->
 
-		</div>
-		<!-- /uwrap -->
-	</body>
+  <!-- content goes here-->
+  <div class="uwrap" id="content">
+   <div class="upage panel" id="mainpage" data-header="af-header-0" data-footer="none">
+    <div class="upage-outer">
+     <header class="container-group inner-element uib_w_1" data-uib="app_framework/header" data-ver="0" id="af-header-0">
+      <h1>Title</h1>
+      <div class="widget-container wrapping-col single-centered"></div>
+      <div class="widget-container content-area horiz-area wrapping-col left">
+       <a class="button widget uib_w_9 d-margins icon settings" data-uib="app_framework/button" data-ver="0" id="settingsbtn"></a>
+      </div>
+      <div class="widget-container content-area horiz-area wrapping-col right"></div>
+     </header>
+     <div class="upage-content" id="mainsub">
+
+      <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+       <div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
+        <div class="widget-container content-area vertical-col">
+
+         <div class="widget uib_w_10 d-margins" data-uib="media/text" data-ver="0">
+          <div class="widget-container left-receptacle"></div>
+          <div class="widget-container right-receptacle"></div>
+          <div>
+           <p>This is the view for the first menu item (Home).</p>
+          </div>
+         </div><span class="uib_shim"></span>
+        </div>
+       </div>
+       <span class="uib_shim"></span>
+      </div>
+     </div>
+     <div id="Profile_page" class="upage-content hidden">
+
+      <div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
+       <div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
+        <div class="widget-container content-area vertical-col">
+
+         <div class="widget uib_w_13 d-margins" data-uib="media/text" data-ver="0">
+          <div class="widget-container left-receptacle"></div>
+          <div class="widget-container right-receptacle"></div>
+          <div>
+           <p>This is the view for the fourth menu item (Profile).</p>
+          </div>
+         </div><span class="uib_shim"></span>
+        </div>
+       </div>
+       <span class="uib_shim"></span>
+      </div>
+     </div>
+     <div id="Messages_page" class="upage-content hidden">
+
+      <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+       <div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
+        <div class="widget-container content-area vertical-col">
+
+         <div class="widget uib_w_12 d-margins" data-uib="media/text" data-ver="0">
+          <div class="widget-container left-receptacle"></div>
+          <div class="widget-container right-receptacle"></div>
+          <div>
+           <p>This is the view for the third menu item (Messages).</p>
+          </div>
+         </div><span class="uib_shim"></span>
+        </div>
+       </div>
+       <span class="uib_shim"></span>
+      </div>
+     </div>
+     <div id="Favorite_page" class="upage-content hidden">
+
+      <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+       <div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
+        <div class="widget-container content-area vertical-col">
+
+         <div class="widget uib_w_11 d-margins" data-uib="media/text" data-ver="0">
+          <div class="widget-container left-receptacle"></div>
+          <div class="widget-container right-receptacle"></div>
+          <div>
+           <p>This is the view for the second menu item (Favorites).</p>
+          </div>
+         </div><span class="uib_shim"></span>
+        </div>
+       </div>
+       <span class="uib_shim"></span>
+      </div>
+     </div>
+     <!-- /upage-content -->
+
+     <div class="inner-element uib_w_2 uib_sidebar leftbar bar-bg thumb-bg bar-gutter" data-uib="layout/left_sidebar" data-ver="0"
+     data-anim="{'style':'push', 'v':260, 'side':'left'}">
+      <div class="sidebar-content">
+
+       <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+        <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+         <div class="widget-container content-area vertical-col">
+
+          <ul class="list widget uib_w_3 d-margins" data-uib="app_framework/listview" data-ver="0">
+           <li class="widget uib_w_4" data-uib="app_framework/listitem" data-ver="0" id="home-btn"><a class="icon home">Home                                       </a>
+           </li>
+
+
+          </ul>
+          <ul class="list widget uib_w_5 d-margins" data-uib="app_framework/listview" data-ver="0">
+           <li class="widget uib_w_6" data-uib="app_framework/listitem" data-ver="0" id="favorites-btn"><a class="icon heart">Favorites                      </a>
+           </li>
+           <li class="widget uib_w_7" data-uib="app_framework/listitem" data-ver="0" id="messages-btn"><a class="icon chat">Messages                                 </a>
+           </li>
+           <li class="widget uib_w_8" data-uib="app_framework/listitem" data-ver="0" id="profile-btn"><a class="icon user">Profile                      </a>
+           </li>
+          </ul><span class="uib_shim"></span>
+         </div>
+        </div>
+        <span class="uib_shim"></span>
+       </div>
+
+      </div>
+     </div>
+    </div>
+    <!-- /upage-outer -->
+
+   </div>
+   <!-- /upage -->
+
+  </div>
+  <!-- /uwrap -->
+ </body>
+
 </html>

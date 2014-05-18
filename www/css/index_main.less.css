@@ -162,12 +162,12 @@ body:not(#afui) .upage-outer {
 }
 /* sidebars and crossbars */
 .uib_sidebar {
-  position: fixed;
+  position: absolute;
   height: 100%;
   top: 0px;
 }
 .uib_crossbar {
-  position: fixed;
+  position: absolute;
   width: 100%;
   left: 0px;
 }
@@ -207,8 +207,6 @@ body:not(#afui) .upage-outer {
   z-index: 4;
 }
 .sidebar-content {
-  height: 100%;
-  overflow-y: auto;
   position: relative;
   margin: 0;
 }
@@ -216,9 +214,6 @@ body:not(#afui) .upage-outer {
   position: relative;
   margin: 0;
   /* background-image:url('images/gripper.png'); */
-}
-.template {
-  display: none !important;
 }
 #afui header {
   display: -webkit-flex !important;
@@ -231,9 +226,6 @@ body:not(#afui) .upage-outer {
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
-}
-#afui header#defaultHeader {
-  display: none !important;
 }
 #afui header input {
   height: 32px;
@@ -265,13 +257,62 @@ body:not(#afui) .upage-outer {
   margin-left: auto !important;
   margin-right: auto !important;
 }
-#afui header > .content-area.left.with-back > :not(#backButton) {
-  display: none;
-}
 .uib_row_1:not(.cright) > .col {
   padding-right: 20px;
 }
 .uib_row_1.cright > .col {
+  padding-left: 20px;
+}
+@media all {
+  .col-0_12-12 {
+    width: auto;
+    float: none !important;
+  }
+  .urow:not(.cright) > .col-0_12-12 {
+    padding-right: 0px !important;
+  }
+  .urow.cright > .col-0_12-12 {
+    padding-left: 0px !important;
+  }
+}
+@media all {
+  #afui .bar-bg {
+    background-color: #53a9ff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+@media all {
+  #afui .thumb-bg > .sidebar-thumb {
+    background-image: url('../sidebar/css/images/gripper.png');
+  }
+  #afui .thumb-bg > .sidebar-thumb:hover,
+  #afui .thumb-bg > .sidebar-thumb:active {
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  #afui .bar-gutter .sidebar-content > .grid-pad {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media all {
+  #afui .d-margins {
+    margin-top: 5px;
+    margin-bottom: 6px;
+  }
+  #afui .wrapping-col > .d-margins {
+    margin-left: 4px;
+    margin-right: 5px;
+  }
+}
+.uib_row_2:not(.cright) > .col {
+  padding-right: 20px;
+}
+.uib_row_2.cright > .col {
   padding-left: 20px;
 }
 @media all {
@@ -295,51 +336,15 @@ body:not(#afui) .upage-outer {
   }
 }
 @media all and (min-width: 0px) {
-  #afui .row-height-1 > .col > .content-area {
-    min-height: 100px;
-  }
-}
-#afui .with-label label.narrow-control {
-  float: none;
-}
-#afui .with-label label.narrow-control + * {
-  display: block;
-  width: 100% !important;
-  margin-bottom: 0 !important;
-}
-#afui .with-label label.narrow-control:empty {
-  display: none;
-}
-#afui .with-label .label-inline {
-  width: 30%;
-  vertical-align: middle;
-}
-#afui .with-label .label-top-left,
-#afui .with-label .label-top-right {
-  width: auto !important;
-  display: block;
-  padding: 8px 4px 4px;
-}
-#afui .with-label .label-top-left {
-  text-align: left !important;
-}
-#afui .with-label .label-top-right {
-  text-align: right !important;
-}
-@media all {
-  #afui .d-margins {
-    margin-top: 5px;
-    margin-bottom: 6px;
-  }
-  #afui .wrapping-col > .d-margins {
-    margin-left: 4px;
-    margin-right: 5px;
-  }
-}
-@media all and (min-width: 0px) {
   #afui .row-height-2 > .col > .content-area {
     min-height: 100px;
   }
+}
+.left-receptacle {
+  float: left;
+}
+.right-receptacle {
+  float: right;
 }
 .uib_row_3:not(.cright) > .col {
   padding-right: 20px;
@@ -387,16 +392,10 @@ body:not(#afui) .upage-outer {
     min-height: 100px;
   }
 }
-.left-receptacle {
-  float: left;
-}
-.right-receptacle {
-  float: right;
-}
-.uib_row_2:not(.cright) > .col {
+.uib_row_5:not(.cright) > .col {
   padding-right: 20px;
 }
-.uib_row_2.cright > .col {
+.uib_row_5.cright > .col {
   padding-left: 20px;
 }
 @media all {
@@ -411,8 +410,8 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-
-h1.push-container{
-	text-align:center;
-	border-bottom: 1px #ccc solid;
+@media all and (min-width: 0px) {
+  #afui .row-height-5 > .col > .content-area {
+    min-height: 100px;
+  }
 }
