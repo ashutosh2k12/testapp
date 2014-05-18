@@ -60,10 +60,10 @@ function showApps(div)
 var token; //The Token
 var parentid;
 var appid;
-$.ui.disableSideMenu();
+//$.ui.disableSideMenu();
 
 function register_event_handlers()
- {   		
+ {   	$.ui.toggleSideMenu(true);
          $(document).on("click", "#one-screen", function(evt)
         {
             //Get Prev Data
