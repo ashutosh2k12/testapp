@@ -27,7 +27,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
-			$.ui.blockUI(0.9);
+			$.ui.blockUI(0.1);
 			$.ui.showMask("Verifying...");
 			//Check data
 			$.ajax({
@@ -64,7 +64,7 @@ function register_event_handlers()
         {
 			 //Get Prev Data
             var user_cell = $('input#mobile').val(); //Get email and check if that is true
-			$.ui.blockUI(0.9)
+			$.ui.blockUI(0.1)
 			$.ui.showMask("Registering...");
 			//Check data
 			$.ajax({
@@ -140,6 +140,7 @@ var app = {
 						  var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
+						  navigator.notification.beep(3); //Make a beep sound
 					//	  $.ui.updateContentDiv("#myDiv","This is the new content");
                           
             break;
