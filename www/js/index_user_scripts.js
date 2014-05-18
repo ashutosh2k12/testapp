@@ -62,6 +62,7 @@ var appid;
 
 function register_event_handlers()
  {   
+		$.ui.setSideMenuWidth('200px');
          $(document).on("click", "#one-screen", function(evt)
         {
             //Get Prev Data
