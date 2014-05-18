@@ -17,6 +17,43 @@
         });
 }
 
+function showApps(div)
+{
+ //alert($(div).data('counter'));
+	$.ui.blockUI(0.1);
+	$.ui.showMask("Verifying...");
+	//Check data
+	$.ajax({
+	   type: "POST",
+	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/apps",
+	   data: {token: token},
+	   dataType: "json",
+	   success: function(data) {
+		$.ui.hideMask();
+		$.ui.unblockUI();
+			 if(data.apps.length>0){
+				for(var i=0;i<data.apps.length;i++)
+				{
+					var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
+										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
+					$('ul#pushes').append(_cont);
+				}
+			 }
+			 else{
+				alert('Error: '+data.error_response);
+			//	return false;
+			 }
+			 
+	   },
+	   error: function(xhr, ajaxOptions, thrownError) {
+			 alert(xhr.status);
+			 alert(thrownError);
+			 $.ui.hideMask();
+			 $.ui.unblockUI();
+	   }
+	})
+}
+
 var token; //The Token
 var parentid;
 var appid;
