@@ -36,7 +36,7 @@ function showApps(div)
 				for(var i=0;i<data.apps.length;i++)
 				{
 				//
-					var _cont += '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
+				 _cont += '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				$('ul#pushes').empty().append(_cont);
