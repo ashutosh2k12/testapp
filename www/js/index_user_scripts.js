@@ -63,7 +63,7 @@ var appid;
 //$.ui.disableSideMenu();
 
 function register_event_handlers()
- {   	$.ui.toggleSideMenu(true);
+ {   	 
          $(document).on("click", "#one-screen", function(evt)
         {
             //Get Prev Data
@@ -149,6 +149,7 @@ var app = {
 
     onDeviceReady: function() {
     //    initPushPlug();
+	    $.ui.disableSideMenu();
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
