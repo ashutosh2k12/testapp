@@ -134,7 +134,8 @@ function register_event_handlers()
         });
 		$(document).on("click", ".uib_w_27", function(evt)
         {
-		//	uib_sb.toggle_sidebar($(".uib_w_22"));  
+		//	uib_sb.toggle_sidebar($(".uib_w_22"));  	
+			alert('Hello world');
 			$.ui.toggleSideMenu();
         });
 
