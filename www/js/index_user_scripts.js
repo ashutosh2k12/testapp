@@ -142,7 +142,8 @@ function register_event_handlers()
         {
 		//	uib_sb.toggle_sidebar($(".uib_w_22"));  	
 		//	alert('Hello world');
-			$.ui.toggleSideMenu();
+		//	$.ui.toggleSideMenu();
+			uib_sb.toggle_sidebar($(".uib_w_22"));  
         });
 
 }
