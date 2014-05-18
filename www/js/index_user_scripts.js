@@ -59,8 +59,14 @@ function showApps(div)
 var token; //The Token
 var parentid;
 var appid;
+
+$.ui.autoLaunch = false;
+$.ui.animateHeaders = false;
+
 function register_event_handlers()
  {   
+		$.ui.setSideMenuWidth('260px');
+        $.ui.launch();
          $(document).on("click", "#one-screen", function(evt)
         {
             //Get Prev Data
