@@ -21,7 +21,7 @@ function showApps(div)
 {
  //alert($(div).data('counter'));
 	$.ui.blockUI(0.1);
-	$.ui.showMask("Verifying...");
+	$.ui.showMask("Fetching applications...");
 	//Check data
 	$.ajax({
 	   type: "POST",
