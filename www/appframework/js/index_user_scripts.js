@@ -133,13 +133,13 @@ function register_event_handlers()
         {
          activate_subpage("#uib_page_3"); 
         });
-		$(document).on("click", ".uib_w_9", function(evt)
+		$(document).on("click", ".uib_w_95", function(evt)
         {
 		//	uib_sb.toggle_sidebar($(".uib_w_22"));  	
 		//	alert('Hello world');
 		//	$.ui.toggleSideMenu();
         
-         uib_sb.toggle_sidebar($(".uib_w_25"));  
+         uib_sb.toggle_sidebar($(".uib_w_256"));  
         });
 
 }
