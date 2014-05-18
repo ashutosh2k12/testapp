@@ -132,6 +132,7 @@ function register_event_handlers()
 		
 		$(document).on("click", ".uib_w_list", function(evt)
         {
+		$.ui.toggleSideMenu();
          activate_subpage("#uib_page_3"); 
         });
 
