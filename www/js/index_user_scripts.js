@@ -19,6 +19,7 @@
 
 function showApps(div)
 {
+	$.ui.enableSideMenu();
  //alert($(div).data('counter'));
 	$.ui.blockUI(0.1);
 	$.ui.showMask("Fetching applications...");
@@ -63,6 +64,8 @@ var appid;
 function register_event_handlers()
  {   
 		$.ui.setSideMenuWidth('200px');
+		$.ui.disableSideMenu();
+		
          $(document).on("click", "#one-screen", function(evt)
         {
             //Get Prev Data
@@ -132,7 +135,6 @@ function register_event_handlers()
 		
 		$(document).on("click", ".uib_w_list", function(evt)
         {
-		$.ui.disableSideMenu();
          activate_subpage("#uib_page_3"); 
         });
 
