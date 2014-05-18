@@ -132,6 +132,10 @@ function register_event_handlers()
         {
          activate_subpage("#uib_page_3"); 
         });
+		$(document).on("click", ".uib_w_27", function(evt)
+        {
+			uib_sb.toggle_sidebar($(".uib_w_22"));  
+        });
 
 }
 
