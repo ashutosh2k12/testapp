@@ -294,7 +294,7 @@ body:not(#afui) .upage-outer {
     padding-right: 20px;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 0px) {
   #afui .row-height-1 > .col > .content-area {
     min-height: 100px;
   }
@@ -336,7 +336,7 @@ body:not(#afui) .upage-outer {
     margin-right: 5px;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 0px) {
   #afui .row-height-2 > .col > .content-area {
     min-height: 100px;
   }
@@ -359,7 +359,7 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 0px) {
   #afui .row-height-3 > .col > .content-area {
     min-height: 100px;
   }
@@ -382,7 +382,7 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 0px) {
   #afui .row-height-4 > .col > .content-area {
     min-height: 100px;
   }
@@ -411,132 +411,8 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all {
-  
-}
-.uib_row_5:not(.cright) > .col {
-  padding-right: 20px;
-}
-.uib_row_5.cright > .col {
-  padding-left: 20px;
-}
-@media all {
-  .col-0_12-12 {
-    width: auto;
-    float: none !important;
-  }
-  .urow:not(.cright) > .col-0_12-12 {
-    padding-right: 0px !important;
-  }
-  .urow.cright > .col-0_12-12 {
-    padding-left: 0px !important;
-  }
-}
-@media all {
-  #afui .bar-bg {
-    background-color: #dadada;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
-}
-@media all {
-  #afui .thumb-bg > .sidebar-thumb {
-    background-image: url('../sidebar/css/images/gripper.png');
-  }
-  #afui .thumb-bg > .sidebar-thumb:hover,
-  #afui .thumb-bg > .sidebar-thumb:active {
-    background-color: #eeeeee;
-  }
-}
-@media all {
-  #afui .bar-gutter .sidebar-content > .grid-pad {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-.uib_row_6:not(.cright) > .col {
-  padding-right: 20px;
-}
-.uib_row_6.cright > .col {
-  padding-left: 20px;
-}
-@media all {
-  .col-0_12-12 {
-    width: auto;
-    float: none !important;
-  }
-  .urow:not(.cright) > .col-0_12-12 {
-    padding-right: 0px !important;
-  }
-  .urow.cright > .col-0_12-12 {
-    padding-left: 0px !important;
-  }
-}
-@media all and (min-width: 320px) {
-  #afui .row-height-6 > .col > .content-area {
-    min-height: 100px;
-  }
-}
-@media all {
-  #afui .default-graphic-button {
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-}
-@media all {
-  #afui .hover-graphic-button:hover {
-    border-radius: 5px;
-    background-color: #000000;
-  }
-}
-@media all {
-  #afui .active-graphic-button:active {
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-}
-@media all {
-  #afui .default-graphic-text {
-    color: #FFFFFF;
-    text-align: center;
-  }
-}
-@media all {
-  #afui .default-graphic-sizing {
-    padding: 5px;
-  }
-}
-@media all {
-  #afui .default-sprite-button div.uib-sprite {
-    background-image: url(../my/images/intel.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
-@media all {
-  #afui .hover-sprite-button:hover div.uib-sprite {
-    background-image: url(../my/images/intel-invert.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
-@media all {
-  #afui .active-sprite-button:active div.uib-sprite {
-    background-image: url(../my/images/intel.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
-@media all {
-  #afui .sprite-sizing {
-    height: 120px !important;
-    width: 135px !important;
-    -webkit-flex: 0 0 auto !important;
-    -moz-flex: 0 0 auto !important;
-    -ms-flex: 0 0 auto !important;
-    -o-flex: 0 0 auto !important;
-    flex: 0 0 auto !important;
-  }
+
+h1.push-container{
+	text-align:center;
+	border-bottom: 1px #ccc solid;
 }
