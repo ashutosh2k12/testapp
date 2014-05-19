@@ -176,8 +176,9 @@ function register_event_handlers()
         {
 		//	alert('hello');
 			var push_data= typeof $(this).data('push');
+			var data_push = $(this).data('push');
 			
-			$('#push-stat').html('<p>appid= '+push_data+'</p>');
+			$('#push-stat').html('<p>appid= '+push_data+' <br> and data='+data_push+'</p>');
 		//	$.ui.updatePanel("#push-stat","This is the new content");
 		$.ui.loadContent("#uib_page_4",false,false,"slide");
      //    activate_subpage("#uib_page_4"); 
