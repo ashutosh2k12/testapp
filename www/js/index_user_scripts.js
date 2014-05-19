@@ -36,13 +36,18 @@ function showPushes(div)
 		var pushes = data.pushes;
 		 if(pushes.length>0){
 			var _cont = '';
+			var push_array = [];
 			for(var i=0;i<pushes.length;i++)
 			{
-				var jsdata = "key";
-				window.sessionStorage.setItem(jsdata, pushes[i].appid);
-			//  var jsdata = { appid : pushes[i].appid, pin: pushes[i].pin };
-			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+jsdata+'">'+pushes[i].message+'</li>';
+				var pushdatakey = guid();
+				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, sent_on: pushes[i].created_on};
+				push_array.push(jsdata);
+			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">'+pushes[i].message+'</li>';
 			}
+			
+			var pushdataval = JSON.stringify(push_array);
+			window.sessionStorage.setItem('push', pushdataval);
+			
 			$('ul#pushesfetch').empty().append(_cont);
 		 }
 	   },
@@ -73,12 +78,17 @@ function showApps(div)
 		$.ui.unblockUI();
 			 if(data.apps.length>0){
 				var _cont = '';
+				var apps_array = [];
 				for(var i=0;i<data.apps.length;i++)
 				{
 				//
+				var appdata = { appid:data.apps[i].appid, appname : data.apps[i].app_name, app_desc: data.apps[i].app_desc, pin:data.apps[i].pin};
+				apps_array.push(appdata);
 				 _cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
+				var appdataval = JSON.stringify(apps_array);
+				window.sessionStorage.setItem('apps', pushdataval);
 				$('ul#pushes').empty().append(_cont);
 			 }
 			 else{
@@ -95,6 +105,19 @@ function showApps(div)
 	   }
 	})
 }
+
+window.guid = (function() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+               .toString(16)
+               .substring(1);
+  }
+  return function() {
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+           s4() + '-' + s4() + s4() + s4();
+  };
+})();
+
 
 var token; //The Token
 var parentid;
@@ -179,9 +202,16 @@ function register_event_handlers()
         {
 		//	alert('hello');
 			var push_key= $(this).data('push');
-			var data_push = window.sessionStorage.getItem(push_key);
-			
-			$('#push-stat').html('<p>appid= '+push_key+' <br> and data='+data_push+'</p>');
+			var msg = $(this).text();
+			var data_push = JSON.parse(window.sessionStorage.getItem('push'));
+			for(var j=0;j<data_push.length;j++)
+			{
+				if(data_push[j].pushid==push_key)
+				{
+					$('#push-stat').html('<p>push id= '+data_push[j].pushid+' <br>appid='+data_push[j].appid+' <br> and data='+msg+' sent on='+data_push[j].sent_on+'</p>');
+					
+				}
+			}
 		//	$.ui.updatePanel("#push-stat","This is the new content");
 		$.ui.loadContent("#uib_page_4",false,false,"slide");
      //    activate_subpage("#uib_page_4"); 
