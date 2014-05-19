@@ -128,7 +128,7 @@ function showApps(div)
 	$.ui.enableSideMenu();
 	var app_sess = window.sessionStorage.getItem('apps');
 	if(app_sess === undefined || app_sess === null || app_sess.length === 0){
-		fetchPushes();
+		fetchApps();
 	}else{
 	var data_app = JSON.parse(app_sess);
 	if(data_app.length > 0){
