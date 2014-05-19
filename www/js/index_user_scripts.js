@@ -175,7 +175,7 @@ function register_event_handlers()
 		$(document).on("click", ".list-push", function(evt)
         {
 			alert('hello');
-			$.ui.updatePanel("#push-stat","This is the new content");
+		//	$.ui.updatePanel("#push-stat","This is the new content");
          activate_subpage("#uib_page_4"); 
         });
 
