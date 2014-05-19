@@ -17,21 +17,9 @@
         });
 }
 
-//Fetch all pushes
-function showPushes(div)
+function fetchPushes()
 {
-	$.ui.enableSideMenu();
-	var data_push = JSON.parse(window.sessionStorage.getItem('push'));
-	if(data_push.length > 0){
-		var _cont = '';
-		for(var j=0;j<data_push.length;j++)
-		{
-			_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">'+data_push[j].msg+'</li>';	
-		}
-		$('ul#pushesfetch').empty().append(_cont);
-	}else{
- //alert($(div).data('counter'));
-	$.ui.blockUI(0.1);
+$.ui.blockUI(0.1);
 	$.ui.showMask("Fetching messages...");
 	//Check data
 	$.ajax({
@@ -67,6 +55,31 @@ function showPushes(div)
 			 $.ui.unblockUI();
 	   }
 	})
+}
+
+//Fetch all pushes
+function showPushes(div)
+{
+	$.ui.enableSideMenu();
+	var push_sess = window.sessionStorage.getItem('push');
+	if(push_sess === undefined || push_sess === null || push_sess.length === 0){
+		alert('session not exist');
+		fetchPushes();
+	}else{
+	var data_push = JSON.parse(push_sess);
+	if(data_push.length > 0){
+		alert('session length exist');
+		var _cont = '';
+		for(var j=0;j<data_push.length;j++)
+		{
+			_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">'+data_push[j].msg+'</li>';	
+		}
+		$('ul#pushesfetch').empty().append(_cont);
+	}else{
+ //alert($(div).data('counter'));
+	alert('session length no');
+	fetchPushes();
+}
 }
 }
 
