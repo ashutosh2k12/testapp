@@ -17,6 +17,43 @@
         });
 }
 
+//Fetch all pushes
+function showPushes(div)
+{
+	$.ui.enableSideMenu();
+ //alert($(div).data('counter'));
+	$.ui.blockUI(0.1);
+	$.ui.showMask("Fetching messages...");
+	//Check data
+	$.ajax({
+	   type: "POST",
+	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/pushes",
+	   data: {token: token},
+	   dataType: "json",
+	   success: function(data) {
+		$.ui.hideMask();
+		$.ui.unblockUI();
+		var pushes = data.pushes;
+		 if(pushes.length>0){
+			var _cont = '';
+			for(var i=0;i<pushes.length;i++)
+			{
+			 _cont += '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
+									<a href="#uib_page_4" data-push="'+pushes[i].appid+'" data-transition="slide">'+pushes[i].message+'</a></li>';
+			}
+			$('ul#pushesfetch').empty().append(_cont);
+		 }
+	   },
+	   error: function(xhr, ajaxOptions, thrownError) {
+			 alert(xhr.status);
+			 alert(thrownError);
+			 $.ui.hideMask();
+			 $.ui.unblockUI();
+	   }
+	})
+}
+
+//Fetch all applications
 function showApps(div)
 {
 	$.ui.enableSideMenu();
@@ -178,11 +215,23 @@ var app = {
             break;
  
             case 'message':
+			
 						  // this is the actual push notification. its format depends on the data model from the push server
 					//	  alert('push message = '+e.message);
+					/*
 						  var _cont = '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
+					*/
+						  $.ui.popup( {
+						   title:"Push Received!",
+						   message: e.message,
+						   cancelText:"Dismiss",
+						   cancelCallback: function(){console.log("cancelled");},
+						   doneText:"I'm done!",
+						   doneCallback: function(){console.log("Done for!");},
+						   cancelOnly:false
+						 });
 						  navigator.notification.beep(3); //Make a beep sound
 					//	  $.ui.updateContentDiv("#myDiv","This is the new content");
                           
