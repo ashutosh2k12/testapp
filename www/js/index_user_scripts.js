@@ -63,12 +63,10 @@ function showPushes(div)
 	$.ui.enableSideMenu();
 	var push_sess = window.sessionStorage.getItem('push');
 	if(push_sess === undefined || push_sess === null || push_sess.length === 0){
-		alert('session not exist');
 		fetchPushes();
 	}else{
 	var data_push = JSON.parse(push_sess);
 	if(data_push.length > 0){
-		alert('session length exist');
 		var _cont = '';
 		for(var j=0;j<data_push.length;j++)
 		{
@@ -77,7 +75,6 @@ function showPushes(div)
 		$('ul#pushesfetch').empty().append(_cont);
 	}else{
  //alert($(div).data('counter'));
-	alert('session length no');
 	fetchPushes();
 }
 }
