@@ -175,7 +175,7 @@ function register_event_handlers()
 		$(document).on("click", ".list-push", function(evt)
         {
 		//	alert('hello');
-			var push_data= $(this).data('push');
+			var push_data= $.parseJSON($(this).data('push'));
 			
 			$('#push-stat').html('<p>appid= '+push_data.appid+'</p>');
 		//	$.ui.updatePanel("#push-stat","This is the new content");
