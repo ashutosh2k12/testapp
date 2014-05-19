@@ -73,18 +73,14 @@ function showPushes(div)
 			_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">'+data_push[j].msg+'</li>';	
 		}
 		$('ul#pushesfetch').empty().append(_cont);
-	}else{
- //alert($(div).data('counter'));
-	fetchPushes();
-}
-}
+	}else{	fetchPushes();	}	
+	}
 }
 
-//Fetch all applications
-function showApps(div)
+
+//Fetch application via ajax
+function fetchApps()
 {
-	$.ui.enableSideMenu();
- //alert($(div).data('counter'));
 	$.ui.blockUI(0.1);
 	$.ui.showMask("Fetching applications...");
 	//Check data
@@ -124,6 +120,28 @@ function showApps(div)
 			 $.ui.unblockUI();
 	   }
 	})
+}
+
+//Fetch all applications
+function showApps(div)
+{
+	$.ui.enableSideMenu();
+	var app_sess = window.sessionStorage.getItem('apps');
+	if(app_sess === undefined || app_sess === null || app_sess.length === 0){
+		fetchPushes();
+	}else{
+	var data_app = JSON.parse(app_sess);
+	if(data_app.length > 0){
+		var _cont = '';
+		for(var j=0;j<data_app.length;j++)
+		{
+			_cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
+										<a href="#uib_page_3" data-transition="slide">'+data_app[j].appname+'</a></li>';
+		}
+		$('ul#pushes').empty().append(_cont);
+	}else{	fetchApps();	}	
+	}
+	
 }
 
 window.guid = (function() {
