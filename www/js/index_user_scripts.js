@@ -38,7 +38,8 @@ function showPushes(div)
 			var _cont = '';
 			for(var i=0;i<pushes.length;i++)
 			{
-			 _cont += '<li class="widget uib_w_list list-push push'+i+'" data-uib="app_framework/listitem" data-ver="0" data-push=\''+$.parseJSON(pushes[i])+'\'>'+pushes[i].message+'</li>';
+			var pushj = $.parseJSON(pushes[i]);
+			 _cont += '<li class="widget uib_w_list list-push push'+i+'" data-uib="app_framework/listitem" data-ver="0" data-push=\''+pushj+'\'>'+pushes[i].message+'</li>';
 			}
 			$('ul#pushesfetch').empty().append(_cont);
 		 }
