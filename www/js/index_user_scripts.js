@@ -21,6 +21,15 @@
 function showPushes(div)
 {
 	$.ui.enableSideMenu();
+	var data_push = JSON.parse(window.sessionStorage.getItem('push'));
+	if(data_push.length > 0){
+		var _cont = '';
+		for(var j=0;j<data_push.length;j++)
+		{
+			_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">'+data_push[j].msg+'</li>';	
+		}
+		$('ul#pushesfetch').empty().append(_cont);
+	}else{
  //alert($(div).data('counter'));
 	$.ui.blockUI(0.1);
 	$.ui.showMask("Fetching messages...");
@@ -40,7 +49,7 @@ function showPushes(div)
 			for(var i=0;i<pushes.length;i++)
 			{
 				var pushdatakey = guid();
-				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, sent_on: pushes[i].created_on};
+				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, msg: pushes[i].message, sent_on: pushes[i].created_on};
 				push_array.push(jsdata);
 			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">'+pushes[i].message+'</li>';
 			}
@@ -58,6 +67,7 @@ function showPushes(div)
 			 $.ui.unblockUI();
 	   }
 	})
+}
 }
 
 //Fetch all applications
@@ -88,7 +98,7 @@ function showApps(div)
 										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				var appdataval = JSON.stringify(apps_array);
-				window.sessionStorage.setItem('apps', pushdataval);
+				window.sessionStorage.setItem('apps', appdataval);
 				$('ul#pushes').empty().append(_cont);
 			 }
 			 else{
