@@ -175,7 +175,9 @@ function register_event_handlers()
 		$(document).on("click", ".list-push", function(evt)
         {
 		//	alert('hello');
-			$('#push-stat').html('<p>New content</p>');
+			var push_data= $(this).data('push');
+			
+			$('#push-stat').html('<p>appid= '+push_data.appid+'</p>');
 		//	$.ui.updatePanel("#push-stat","This is the new content");
 		$.ui.loadContent("#uib_page_4",false,false,"slide");
      //    activate_subpage("#uib_page_4"); 
