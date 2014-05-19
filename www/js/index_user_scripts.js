@@ -38,8 +38,7 @@ function showPushes(div)
 			var _cont = '';
 			for(var i=0;i<pushes.length;i++)
 			{
-			 _cont += '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
-									<a href="#uib_page_4" data-push="'+pushes[i].appid+'" data-transition="slide">'+pushes[i].message+'</a></li>';
+			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushes[i]+'">'+pushes[i].message+'</li>';
 			}
 			$('ul#pushesfetch').empty().append(_cont);
 		 }
@@ -74,7 +73,7 @@ function showApps(div)
 				for(var i=0;i<data.apps.length;i++)
 				{
 				//
-				 _cont += '<li class="widget uib_w_list" data-uib="app_framework/listitem" data-ver="0">\
+				 _cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				$('ul#pushes').empty().append(_cont);
@@ -168,9 +167,15 @@ function register_event_handlers()
 			})
 		});
 		
-		$(document).on("click", ".uib_w_list", function(evt)
+		$(document).on("click", ".list-apps", function(evt)
         {
          activate_subpage("#uib_page_3"); 
+        });
+		
+		$(document).on("click", ".list-push", function(evt)
+        {
+			$.ui.updatePanel("#push-stat","This is the new content");
+         activate_subpage("#uib_page_4"); 
         });
 
 }
