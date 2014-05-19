@@ -174,9 +174,11 @@ function register_event_handlers()
 		
 		$(document).on("click", ".list-push", function(evt)
         {
-			alert('hello');
+		//	alert('hello');
+			$('#push-stat').html('<p>New content</p>');
 		//	$.ui.updatePanel("#push-stat","This is the new content");
-         activate_subpage("#uib_page_4"); 
+		$.ui.loadContent("#uib_page_4",false,false,"slide");
+     //    activate_subpage("#uib_page_4"); 
         });
 
 }
