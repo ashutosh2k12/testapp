@@ -22,14 +22,6 @@
 		<script type="application/javascript" src="js/index_user_scripts.js"></script>
 		<script type="application/javascript" src="js/af_subpage.js"></script>
 		  <!--- Phonegap JS --->
-		<script>   
-        $.ui.autoLaunch = false; 
-        $.ui.animateHeaders = false;
-                
-        $(document).ready(function(){
-            $.ui.launch();
-        });
-    </script>    
 		  
 	</head>
 	<body id="afui" class="android light" onload="app.initialize();">
@@ -184,12 +176,12 @@
 				<!-- /upage-outer -->
 			</div>
 			<!-- /upage -->
-		<div id="navbar">
-        <a href="#page1" id='tab1' class="icon home" data-transition="none">Home</a>
-        <a href="#page2" id='tab2' class="icon heart" data-transition="none">Favorites</a>
-        <a href="#page3" id='tab3' class="icon chat" data-transition="none">Messages</a>
-        <a href="#page4" id='tab4' class="icon user" data-transition="none">Profile</a>
-    </div>
+		<div id="navbar" class="footer">
+        
+        
+        
+        
+    <footer id="defaultNav"><a href="#page1" id="tab1" class="icon home" data-transition="none" data-ignore-pressed="true" data-resethistory="true" style="width: 25%;">Home</a><a href="#page2" id="tab2" class="icon heart" data-transition="none" data-ignore-pressed="true" data-resethistory="true" style="width: 25%;">Favorites</a><a href="#page3" id="tab3" class="icon chat" data-transition="none" data-ignore-pressed="true" data-resethistory="true" style="width: 25%;">Messages</a><a href="#page4" id="tab4" class="icon user pressed" data-transition="none" data-ignore-pressed="true" data-resethistory="true" style="width: 25%;">Profile</a></footer></div>
 		</div>
 		<!-- /uwrap -->
 	</body>
