@@ -166,6 +166,17 @@ function register_event_handlers()
  {   	 
          $(document).on("click", "#one-screen", function(evt)
         {
+			if(typeof token == 'undefined' || token == 0 || token === null)
+			{
+				 $.ui.popup( {
+						   title:"Oops!",
+						   message: 'The device haven\'t yet received its token',
+						   cancelText:"Dismiss",
+						   cancelCallback: function(){console.log("cancelled");},
+						   cancelOnly:true
+				});
+				return false;
+			}
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
@@ -293,6 +304,7 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
 					token = e.regid;
+					alert('Ok! got the device registered');
                 }
             break;
  
