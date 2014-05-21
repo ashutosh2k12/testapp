@@ -275,6 +275,37 @@ function register_event_handlers()
 
 }
 
+window.setupListUpdate = function(){
+	$.ui.ready(function () {
+                var scrollerList = $("#uib_page_3").scroller();
+                
+                scrollerList.addPullToRefresh();
+                $.bind(scrollerList, "refresh-release", function () {
+                    var self = this;
+                    setTimeout(function () { // get content from your api using ajax and display instead of setTimeout.
+                        // add new content at top of list
+                        $("#uib_page_3 ul").prepend("<li><a href='#detailview'>New Item (via Pull Refresh)</a></li>");                                    
+                        self.hideRefresh();
+                    }, 2000);
+                    return false; //tells it to not auto-cancel the refresh
+                });
+                
+                scrollerList.addInfinite();
+                $.bind(scrollerList, "infinite-scroll", function () {
+                    var self = this;
+                    $("#uib_page_3").find("#infinite").text("Loading...")
+                    setTimeout(function () { // get content from your api using ajax and display instead of setTimeout.
+                        $("#uib_page_3").find("#infinite").text("Load More");
+                        // add new content at bottom of list
+                        $("#uib_page_3 ul").append("<li><a href='#detailview'>Next Item (via Infinite Scroll)</a></li>");
+                        self.clearInfinite();
+                    }, 2000);
+                });
+                
+                scrollerList.enable();
+            });
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -287,6 +318,7 @@ var app = {
     onDeviceReady: function() {
     //    initPushPlug();
 	    $.ui.disableSideMenu();
+		setupListUpdate();
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

@@ -12,6 +12,7 @@
 			/* Prevent copy paste for all elements except text fields */
 			*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
 			input, textarea  { -webkit-user-select:text; }
+			#infinite {height:60px;line-height:60px;font-weight:bold;text-align:center}        
 		</style>
 		<script type="text/javascript" src="phonegap.js"></script>
 		<script type="text/javascript" src="PushNotification.js"></script>
@@ -100,7 +101,9 @@
 									<h1 class="push-container">Pushes</h1>
 									<ul id="pushesfetch" class="list widget uib_w_19 d-margins" data-uib="app_framework/listview" data-ver="0">
 										
-									</ul><span class="uib_shim"></span>
+									</ul>
+									<div id='infinite'>Load More</div>
+									<span class="uib_shim"></span>
 									<!---
 									<a class="button widget uib_w_20 d-margins" data-uib="app_framework/button" data-ver="0" href="#uib_page_2" data-transition="pop">Go back</a><span class="uib_shim"></span>
 								    --->
