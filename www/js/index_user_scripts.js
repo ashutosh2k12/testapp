@@ -247,7 +247,12 @@ function register_event_handlers()
          activate_subpage("#uib_page_3"); 
         });
 		
-		$("#uib_page_2").bind("doubleTap",function(){	alert('double tap'); });
+		//Touch events
+		$("#uib_page_2").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
+		$("#uib_page_3").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_1",false,false,"slide"); });
+		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",false,false,"slide"); });
+		$("#uib_page_1").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
+		
 		
 		$(document).on("click", ".list-push", function(evt)
         {
