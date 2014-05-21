@@ -247,6 +247,8 @@ function register_event_handlers()
          activate_subpage("#uib_page_3"); 
         });
 		
+		$("#uib_page_2").bind("doubleTap",function(){	alert('double tap'); });
+		
 		$(document).on("click", ".list-push", function(evt)
         {
 		//	alert('hello');
