@@ -284,6 +284,7 @@ window.setupListUpdate = function(){
                     var self = this;
                     setTimeout(function () { // get content from your api using ajax and display instead of setTimeout.
                         // add new content at top of list
+						/*
 						var firstli = $('ul#pushesfetch li:first').data('push');
 						var data_push = JSON.parse(window.sessionStorage.getItem('push'));
 						var last_pushtime = '';
@@ -291,7 +292,9 @@ window.setupListUpdate = function(){
 						{
 							if(data_push[j].pushid==firstli)	last_pushtime = data_push[j].sent_on;								
 						}
-                        $("#uib_page_3 ul").prepend("<li><a href='#detailview'>New Item (via Pull Refresh) "+last_pushtime+"</a></li>");                                    
+                        $("#uib_page_3 ul").prepend("<li><a href='#detailview'>New Item (via Pull Refresh) "+last_pushtime+"</a></li>"); 
+						*/
+						fetchPushes();
                         self.hideRefresh();
                     }, 2000);
                     return false; //tells it to not auto-cancel the refresh
