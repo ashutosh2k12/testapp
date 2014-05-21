@@ -282,6 +282,9 @@ window.setupListUpdate = function(){
                 scrollerList.addPullToRefresh();
                 $.bind(scrollerList, "refresh-release", function () {
                     var self = this;
+					fetchPushes();
+                    self.hideRefresh();
+					/*
                     setTimeout(function () { // get content from your api using ajax and display instead of setTimeout.
                         // add new content at top of list
 						/*
@@ -294,9 +297,9 @@ window.setupListUpdate = function(){
 						}
                         $("#uib_page_3 ul").prepend("<li><a href='#detailview'>New Item (via Pull Refresh) "+last_pushtime+"</a></li>"); 
 						*/
-						fetchPushes();
-                        self.hideRefresh();
+						
                     }, 2000);
+					*/
                     return false; //tells it to not auto-cancel the refresh
                 });
                 
