@@ -324,6 +324,7 @@ var app = {
 										<a href="#uib_page_3" data-transition="slide">'+e.message+'</a></li>';
 						  $('ul#pushes').append(_cont);
 					*/
+					/*
 						  $.ui.popup( {
 						   title:"Push Received!",
 						   message: e.message,
@@ -333,7 +334,14 @@ var app = {
 						   doneCallback: function(){console.log("Done for!");},
 						   cancelOnly:false
 						 });
-						  navigator.notification.beep(3); //Make a beep sound
+					*/
+						  navigator.notification.alert(
+								e.message,  // message
+								'Push Received!',            // title
+								'Dismiss'                  // buttonName
+						  );
+						  navigator.notification.vibrate(2000); //Vibrate for 2 secs
+						  navigator.notification.beep(3); //Make beep sound 3 times
 					//	  $.ui.updateContentDiv("#myDiv","This is the new content");
                           
             break;
