@@ -168,13 +168,11 @@ function register_event_handlers()
         {
 			if(typeof token == 'undefined' || token == 0 || token === null)
 			{
-				 $.ui.popup( {
-						   title:"Oops!",
-						   message: 'The device haven\'t yet received its token',
-						   cancelText:"Dismiss",
-						   cancelCallback: function(){console.log("cancelled");},
-						   cancelOnly:true
-				});
+				navigator.notification.alert(
+								'The device haven\'t yet received its token',  // message
+								'Oops!',            // title
+								'Dismiss'                  // buttonName
+				);
 				return false;
 			}
             //Get Prev Data
@@ -332,6 +330,12 @@ var app = {
     //    initPushPlug();
 	    $.ui.disableSideMenu();
 		setupListUpdate();
+	//Check if device has already been registered
+		var hwd_sess = window.localStorage.getItem('token');
+		if(hwd_sess != undefined && hwd_sess != ''){
+			token = hwd_sess;
+			$.ui.loadContent("#uib_page_2",false,false,"slide");
+		}
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
@@ -356,7 +360,8 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
 					token = e.regid;
-					alert('Ok! got the device registered');
+					window.localStorage.setItem('token',token);
+		//			alert('Ok! got the device registered');
                 }
             break;
  
