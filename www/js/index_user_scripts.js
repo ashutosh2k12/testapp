@@ -248,8 +248,8 @@ function register_event_handlers()
 		//Touch events
 		$("#uib_page_2").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_1",false,false,"slide"); });
-		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",false,false,"slide"); });
-		$("#uib_page_1").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
+		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",true,true,"slide"); });
+		$("#uib_page_1").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_3",true,true,"slide"); });
 		
 		
 		$(document).on("click", ".list-push", function(evt)
