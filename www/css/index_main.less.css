@@ -30,12 +30,25 @@ body {
 	text-align: center;
 	padding: 10px 0;
 }
+.d_header{
+background: #690505;
+box-shadow: inset -2px 3px 7px -2px #3D0505;
+}
 .sub_tab-1,.sub_tab-2{
-	border-right: 1px #ccc solid;
+	border-right: 1px #832727 solid;
+}
+
+.sub_tab-3{width: 34%;}
+
+.sub_tab-1 a,.sub_tab-2 a,.sub_tab-3 a{
+color: #fff;
+text-decoration: none;
+text-shadow: 0 0 3px #000;
+font-weight: bold;
 }
 .tabber-sub_tab{
-	border-bottom: 1px #ccc solid;
 	display: block;
+	background: #b7321f;
 }
 /* gutter around whole design */
 /*

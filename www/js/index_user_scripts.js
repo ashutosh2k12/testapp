@@ -17,6 +17,12 @@
         });
 }
 
+function decorateHeader(el)
+{
+	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
+	$(el).parent().parent().addClass('d_header');
+}
+
 function fetchPushes()
 {
 $.ui.blockUI(0.1);
