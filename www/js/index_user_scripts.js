@@ -67,6 +67,8 @@ $.ui.blockUI(0.1);
 function showPushes(div)
 {
 	$.ui.enableSideMenu();
+	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
+	$('.sub_tab-2').addClass('d_header');
 	var push_sess = window.sessionStorage.getItem('push');
 	if(push_sess === undefined || push_sess === null || push_sess.length === 0){
 		fetchPushes();
@@ -83,6 +85,12 @@ function showPushes(div)
 	}
 }
 
+//Profile
+function showProfile()
+{
+	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
+	$('.sub_tab-3').addClass('d_header');
+}
 
 //Fetch application via ajax
 function fetchApps()
@@ -132,6 +140,8 @@ function fetchApps()
 function showApps(div)
 {
 	$.ui.enableSideMenu();
+	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
+	$('.sub_tab-1').addClass('d_header');
 	var app_sess = window.sessionStorage.getItem('apps');
 	if(app_sess === undefined || app_sess === null || app_sess.length === 0){
 		fetchApps();
