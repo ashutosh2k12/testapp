@@ -35,6 +35,7 @@ body {
 }
 .tabber-sub_tab{
 	border-bottom: 1px #ccc solid;
+	display: block;
 }
 /* gutter around whole design */
 /*
