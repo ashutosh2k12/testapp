@@ -49,6 +49,7 @@ font-weight: bold;
 .tabber-sub_tab{
 	display: block;
 	background: #b7321f;
+	min-height: 40px;
 }
 /* gutter around whole design */
 /*
