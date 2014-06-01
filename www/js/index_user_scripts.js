@@ -316,7 +316,9 @@ window.setupListUpdate = function(){
 					
                     return false; //tells it to not auto-cancel the refresh
                 });
-                
+				
+                /* Infinite scroller removed
+				
                 scrollerList.addInfinite();
                 $.bind(scrollerList, "infinite-scroll", function () {
                     var self = this;
@@ -330,6 +332,7 @@ window.setupListUpdate = function(){
                 });
                 
                 scrollerList.enable();
+				*/
             });
 }
 
