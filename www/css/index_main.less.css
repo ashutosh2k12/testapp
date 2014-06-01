@@ -26,6 +26,9 @@ max-width:200px;
 height:auto; 
 display:block;
 }
+.table-thing{
+margin-bottom: 10px!important;
+}
 /* grid */
 .grid {
   width: 100%;
