@@ -32,11 +32,11 @@ body {
 	min-height: 40px;
 }
 .d_header{
-background: #690505;
-box-shadow: inset -2px 3px 7px -2px #3D0505;
+background: #3276b1;
+box-shadow: inset -2px 3px 7px -2px #0B3142;
 }
 .sub_tab-1,.sub_tab-2{
-	border-right: 1px #832727 solid;
+	border-right: 1px #276697 solid;
 }
 
 .sub_tab-3{width: 34%;}
@@ -49,7 +49,7 @@ font-weight: bold;
 }
 .tabber-sub_tab{
 	display: block;
-	background: #b7321f;
+	background: #428bca;
 	min-height: 36px;
 }
 /* gutter around whole design */
