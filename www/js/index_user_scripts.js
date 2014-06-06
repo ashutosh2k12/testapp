@@ -17,6 +17,13 @@
         });
 }
 
+window.AddNewApp = function()
+{
+	window.localStorage.setItem('navigate','0');
+	$.ui.loadContent("#mainpage",true,true,"slide");
+	
+}
+
 function decorateHeader(el)
 {
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
@@ -243,6 +250,7 @@ function register_event_handlers()
 					$.ui.hideMask();
 					$.ui.unblockUI();
 					 if(data.error==0){
+						window.localStorage.setItem('navigate','1');
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
 					 }else{ alert('You got some error'); return false; }
 					 
@@ -353,6 +361,9 @@ var app = {
 		var hwd_sess = window.localStorage.getItem('token');
 		if(hwd_sess != undefined && hwd_sess != ''){
 			token = hwd_sess;
+		}
+		var navigate = window.localStorage.getItem('navigate');
+		if(navigate != undefined && navigate == '1'){
 			$.ui.loadContent("#uib_page_2",false,false,"slide");
 		}
         app.receivedEvent('deviceready');
