@@ -75,7 +75,7 @@ $.ui.blockUI(0.1);
 //Fetch all pushes
 function showPushes(div)
 {
-	force_mobilepage();
+	if(force_mobilepage()){
 	$.ui.enableSideMenu();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-2').addClass('d_header');
@@ -92,6 +92,7 @@ function showPushes(div)
 		}
 		$('ul#pushesfetch').empty().append(_cont);
 	}else{	fetchPushes();	}	
+	}
 	}
 }
 
@@ -149,7 +150,7 @@ function fetchApps()
 //Fetch all applications
 function showApps(div)
 {
-	force_mobilepage();
+	if(force_mobilepage()){
 	$.ui.enableSideMenu();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-1').addClass('d_header');
@@ -168,7 +169,7 @@ function showApps(div)
 		$('ul#pushes').empty().append(_cont);
 	}else{	fetchApps();	}	
 	}
-	
+	}
 }
 
 window.guid = (function() {
