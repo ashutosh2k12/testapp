@@ -17,8 +17,8 @@ body {
   margin: 0px;
 }
 .indexed{
+position: relative;
 z-index: -99999999!important;
-display:none!important;
 }
 /*logo */
 .homerlogo{
