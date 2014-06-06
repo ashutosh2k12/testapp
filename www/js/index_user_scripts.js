@@ -20,6 +20,8 @@
 window.AddNewApp = function()
 {
 	window.localStorage.setItem('navigate','0');
+	window.sessionStorage.removeItem('apps');
+	window.sessionStorage.removeItem('push');
 	$.ui.loadContent("#mainpage",true,true,"slide");
 	
 }
