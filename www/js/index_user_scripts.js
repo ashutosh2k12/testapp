@@ -75,7 +75,7 @@ $.ui.blockUI(0.1);
 //Fetch all pushes
 function showPushes(div)
 {
-	if(force_mobilepage()){
+	force_mobilepage();
 	$.ui.enableSideMenu();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-2').addClass('d_header');
@@ -92,7 +92,6 @@ function showPushes(div)
 		}
 		$('ul#pushesfetch').empty().append(_cont);
 	}else{	fetchPushes();	}	
-	}
 	}
 }
 
@@ -150,7 +149,7 @@ function fetchApps()
 //Fetch all applications
 function showApps(div)
 {
-	if(force_mobilepage()){
+	force_mobilepage()
 	$.ui.enableSideMenu();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-1').addClass('d_header');
@@ -168,7 +167,6 @@ function showApps(div)
 		}
 		$('ul#pushes').empty().append(_cont);
 	}else{	fetchApps();	}	
-	}
 	}
 }
 
@@ -221,7 +219,7 @@ function register_event_handlers()
 						if(data.hardware==true){	
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
-						else{	parentid=data.userid; appid = data.appid; $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
+						else{	parentid=data.userid; appid = data.appid; force_mobilepage(); $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);
@@ -278,17 +276,17 @@ function register_event_handlers()
 		$("#uib_page_2").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_1",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",true,true,"slide"); });
-		$("#uib_page_1").bind("swipeRight",function(){	if(force_mobilepage()){ $.ui.loadContent("#uib_page_3",true,true,"slide"); } });
+		$("#uib_page_1").bind("swipeRight",function(){	force_mobilepage() $.ui.loadContent("#uib_page_3",true,true,"slide"); });
 		
 		function force_mobilepage()
 		{
-			/*
+			
 			var navigate = window.localStorage.getItem('navigate');
 			if(navigate != undefined && navigate == '1'){
-				return true;
+				$('#af-header-1').css('z-index', 1);
+			}else{
+			$('#af-header-1').css('z-index', -99999999);
 			}
-			*/
-			return false;
 		}
 		
 		$(document).on("click", ".list-push", function(evt)
