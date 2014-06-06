@@ -16,6 +16,9 @@
 body {
   margin: 0px;
 }
+.indexed{
+z-index: -99999999;
+}
 /*logo */
 .homerlogo{
 margin:0 auto;

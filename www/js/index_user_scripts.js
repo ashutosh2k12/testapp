@@ -276,16 +276,16 @@ function register_event_handlers()
 		$("#uib_page_2").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_1",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",true,true,"slide"); });
-		$("#uib_page_1").bind("swipeRight",function(){	force_mobilepage() $.ui.loadContent("#uib_page_3",true,true,"slide"); });
+		$("#uib_page_1").bind("swipeRight",function(){	force_mobilepage(); $.ui.loadContent("#uib_page_3",true,true,"slide"); });
 		
 		function force_mobilepage()
 		{
 			
 			var navigate = window.localStorage.getItem('navigate');
 			if(navigate != undefined && navigate == '1'){
-				$('#af-header-1').css('z-index', 1);
+				$('#af-header-1').removeClass("indexed");
 			}else{
-			$('#af-header-1').css('z-index', -99999999);
+			$('#af-header-1').addClass("indexed");
 			}
 		}
 		
