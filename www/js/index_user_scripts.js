@@ -234,8 +234,9 @@ function register_event_handlers()
 						else{	parentid=data.userid; appid = data.appid; 
 						var navigate = window.localStorage.getItem('navigate');
 	if(navigate != undefined && navigate == '1'){
-		
+		$('#af-header-1').addClass('indexed');
 	}else{
+		$('#af-header-1').addClass('indexed');
 		$.ui.loadContent("#uib_page_1",false,false,"slide");
 		return false;
 	}
