@@ -155,7 +155,13 @@ function fetchApps()
 //Fetch all applications
 function showApps(div)
 {
-	force_mobilepage()
+	var navigate = window.localStorage.getItem('navigate');
+	if(navigate != undefined && navigate == '1'){
+		
+	}else{
+		$.ui.loadContent("#uib_page_1",false,false,"slide");
+		return false;
+	}
 	$.ui.enableSideMenu();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-1').addClass('d_header');
@@ -225,7 +231,15 @@ function register_event_handlers()
 						if(data.hardware==true){	
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
-						else{	parentid=data.userid; appid = data.appid; force_mobilepage(); $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
+						else{	parentid=data.userid; appid = data.appid; 
+						var navigate = window.localStorage.getItem('navigate');
+	if(navigate != undefined && navigate == '1'){
+		
+	}else{
+		$.ui.loadContent("#uib_page_1",false,false,"slide");
+		return false;
+	}
+						$.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);
@@ -282,7 +296,14 @@ function register_event_handlers()
 		$("#uib_page_2").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_3",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeLeft",function(){	$.ui.loadContent("#uib_page_1",false,false,"slide"); });
 		$("#uib_page_3").bind("swipeRight",function(){	$.ui.loadContent("#uib_page_2",true,true,"slide"); });
-		$("#uib_page_1").bind("swipeRight",function(){	force_mobilepage(); $.ui.loadContent("#uib_page_3",true,true,"slide"); });
+		$("#uib_page_1").bind("swipeRight",function(){	
+		var navigate = window.localStorage.getItem('navigate');
+	if(navigate != undefined && navigate == '1'){
+		
+	}else{
+		$.ui.loadContent("#uib_page_1",false,false,"slide");
+		return false;
+	} $.ui.loadContent("#uib_page_3",true,true,"slide"); });
 		
 		function force_mobilepage()
 		{
