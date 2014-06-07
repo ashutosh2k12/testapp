@@ -23,7 +23,6 @@ window.AddNewApp = function()
 	window.sessionStorage.removeItem('apps');
 	window.sessionStorage.removeItem('push');
 	$.ui.loadContent("#mainpage",true,true,"slide");
-	
 }
 
 function decorateHeader(el)
@@ -216,6 +215,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
+			var admin_number = $('input#admin_phone').val();
 			$.ui.blockUI(0.1);
 			$.ui.showMask("Verifying...");
 			//Check data
@@ -226,21 +226,39 @@ function register_event_handlers()
 			   dataType: "json",
 			   success: function(data) {
 				$.ui.hideMask();
-				$.ui.unblockUI();
+				//$.ui.unblockUI();
 					 if(data.error==0){
 						if(data.hardware==true){	
+							
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
 						else{	parentid=data.userid; appid = data.appid; 
-						var navigate = window.localStorage.getItem('navigate');
-	if(navigate != undefined && navigate == '1'){
-		$('#af-header-1').addClass('indexed');
-	}else{
-		$('#af-header-1').addClass('indexed');
-		$.ui.loadContent("#uib_page_1",false,false,"slide");
-		return false;
-	}
-						$.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
+					//	$.ui.blockUI(0.1)
+			$.ui.showMask("Registering...");
+			//Check data
+			$.ajax({
+			   type: "POST",
+			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
+			   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid },
+			   dataType: "json",
+			   success: function(data) {
+					$.ui.hideMask();
+					$.ui.unblockUI();
+					 if(data.error==0){
+						window.localStorage.setItem('navigate','1');
+						$.ui.loadContent("#uib_page_2",false,false,"slide");
+					 }else{ alert('You got some error'); return false; }
+					 
+			   },
+			   error: function(xhr, ajaxOptions, thrownError) {
+					 alert(xhr.status);
+					 alert(thrownError);
+					 $.ui.hideMask();
+					 $.ui.unblockUI();
+			   }
+			})
+							
+				//		$.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);

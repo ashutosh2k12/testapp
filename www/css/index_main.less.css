@@ -16,9 +16,8 @@
 body {
   margin: 0px;
 }
-.indexed{
-position: relative;
-z-index: -99999999!important;
+.subscriber_button{
+width: auto;
 }
 /*logo */
 .homerlogo{
@@ -67,7 +66,7 @@ font-weight: bold;
 .tabber-sub_tab{
 	display: block;
 	background: #428bca;
-	min-height: 36px;
+	min-height: 45px;
 }
 /* gutter around whole design */
 /*
