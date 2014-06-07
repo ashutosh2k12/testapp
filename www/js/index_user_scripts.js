@@ -226,39 +226,37 @@ function register_event_handlers()
 			   dataType: "json",
 			   success: function(data) {
 				$.ui.hideMask();
-				//$.ui.unblockUI();
+				$.ui.unblockUI();
 					 if(data.error==0){
 						if(data.hardware==true){	
-							
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
-						else{	parentid=data.userid; appid = data.appid; 
-					//	$.ui.blockUI(0.1)
-			$.ui.showMask("Registering...");
-			//Check data
-			$.ajax({
-			   type: "POST",
-			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-			   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid },
-			   dataType: "json",
-			   success: function(data) {
-					$.ui.hideMask();
-					$.ui.unblockUI();
-					 if(data.error==0){
-						window.localStorage.setItem('navigate','1');
-						$.ui.loadContent("#uib_page_2",false,false,"slide");
-					 }else{ alert('You got some error'); return false; }
-					 
-			   },
-			   error: function(xhr, ajaxOptions, thrownError) {
-					 alert(xhr.status);
-					 alert(thrownError);
-					 $.ui.hideMask();
-					 $.ui.unblockUI();
-			   }
-			})
-							
-				//		$.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
+						else{	
+							parentid=data.userid; appid = data.appid; 
+							$.ajax({
+								   type: "POST",
+								   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
+								   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid },
+								   dataType: "json",
+								   success: function(data) {
+										$.ui.hideMask();
+										$.ui.unblockUI();
+										 if(data.error==0){
+											window.localStorage.setItem('navigate','1');
+											$.ui.loadContent("#uib_page_2",false,false,"slide");
+										 }else{ alert('You got some error'); return false; }
+										 
+								   },
+								   error: function(xhr, ajaxOptions, thrownError) {
+										 alert(xhr.status);
+										 alert(thrownError);
+										 $.ui.hideMask();
+										 $.ui.unblockUI();
+								   }
+								});
+						
+						
+						} //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);
