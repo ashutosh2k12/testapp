@@ -201,6 +201,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_pin = $('input#admin_pin').val();
 			var admin_number = $('input#admin_phone').val();
+			var admin_name = $('input#admin_name').val();
 			$.ui.blockUI(0.1);
 			$.ui.showMask("Verifying...");
 			//Check data
@@ -221,7 +222,7 @@ function register_event_handlers()
 							$.ajax({
 								   type: "POST",
 								   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-								   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid },
+								   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid, username: admin_name },
 								   dataType: "json",
 								   success: function(data) {
 										$.ui.hideMask();
