@@ -213,7 +213,6 @@ function register_event_handlers()
 				return false;
 			}
             //Get Prev Data
-            var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
 			var admin_number = $('input#admin_phone').val();
 			$.ui.blockUI(0.1);
@@ -222,7 +221,7 @@ function register_event_handlers()
 			$.ajax({
 			   type: "POST",
 			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
-			   data: {email:admin_email, pin: admin_pin, hardwareid: token },
+			   data: {pin: admin_pin, hardwareid: token },
 			   dataType: "json",
 			   success: function(data) {
 				$.ui.hideMask();
