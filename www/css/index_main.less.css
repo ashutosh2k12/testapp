@@ -270,11 +270,11 @@ body:not(#afui) .upage-outer {
   display: none !important;
 }
 div.table-center {
-width: 50%;
+width: 70%;
 margin: 0 auto;
 }
-.front-form{
-text-align: center;
+label.front-form{
+text-align: left!important;
 }
 #afui header {
   display: -webkit-flex !important;
@@ -387,6 +387,7 @@ text-align: center;
     margin-top: 5px;
     margin-bottom: 6px;
 	margin: 0 auto;
+	width: 40%;
   }
   #afui .wrapping-col > .d-margins {
     margin-left: 4px;
