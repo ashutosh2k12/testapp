@@ -269,6 +269,10 @@ body:not(#afui) .upage-outer {
 .template {
   display: none !important;
 }
+div.table-center {
+width: 50%;
+margin: 0 auto;
+}
 #afui header {
   display: -webkit-flex !important;
   display: -moz-flex !important;
@@ -379,6 +383,7 @@ body:not(#afui) .upage-outer {
   #afui .d-margins {
     margin-top: 5px;
     margin-bottom: 6px;
+	margin: 0 auto;
   }
   #afui .wrapping-col > .d-margins {
     margin-left: 4px;
