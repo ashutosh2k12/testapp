@@ -54,6 +54,7 @@
     -->
 	<gap:plugin name="com.phonegap.plugins.pushplugin" />
 	<gap:plugin name="org.apache.cordova.dialogs" />
+	<gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
 
