@@ -80,7 +80,7 @@ $.ui.blockUI(0.1);
 		 }
 	   },
 	   error: function(xhr, ajaxOptions, thrownError) {
-			 checkConnection()
+			 checkConnection();
 			 $.ui.hideMask();
 			 $.ui.unblockUI();
 	   }
@@ -157,7 +157,7 @@ function fetchApps()
 			 
 	   },
 	   error: function(xhr, ajaxOptions, thrownError) {
-			 checkConnection()
+			 checkConnection();
 			 $.ui.hideMask();
 			 $.ui.unblockUI();
 	   }
@@ -217,7 +217,7 @@ function checkConnection() {
 			$.ui.loadContent("#mainpage",true,true,"slide");
 			return false;
 		}
-
+}
 	
 function register_event_handlers()
  {   	 
