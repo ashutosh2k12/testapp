@@ -183,8 +183,22 @@ window.guid = (function() {
 var token; //The Token
 var parentid;
 var appid;
+var connectionStatus = false;
 //$.ui.disableSideMenu();
 
+function checkConnection(){
+	connectionStatus = navigator.onLine;
+	return connectionStatus;
+}
+
+setInterval(function () {
+        checkConnection();
+		if(!connectionStatus){
+			alert('No internet Connection');
+			$.ui.loadContent("#mainpage",true,true,"slide");
+		}
+}, 100);
+	
 function register_event_handlers()
  {   	 
          $(document).on("click", "#one-screen", function(evt)
