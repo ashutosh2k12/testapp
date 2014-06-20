@@ -211,15 +211,18 @@ var connectionStatus = false;
 
 function checkConnection(){
 	connectionStatus = navigator.onLine;
-	return connectionStatus;
 }
 
 setInterval(function () {
+/*
         checkConnection();
 		if(!connectionStatus){
 			alert('No internet Connection');
-			$.ui.loadContent("#mainpage",true,true,"slide");
+		//	$.ui.loadContent("#mainpage",true,true,"slide");
 		}
+*/
+	connectionStatus = navigator.onLine ? 'online' : 'offline';
+	alert(connectionStatus);
 }, 100);
 	
 function register_event_handlers()
