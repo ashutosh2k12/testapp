@@ -80,8 +80,7 @@ $.ui.blockUI(0.1);
 		 }
 	   },
 	   error: function(xhr, ajaxOptions, thrownError) {
-			 alert(xhr.status);
-			 alert(thrownError);
+			 checkConnection()
 			 $.ui.hideMask();
 			 $.ui.unblockUI();
 	   }
@@ -158,8 +157,7 @@ function fetchApps()
 			 
 	   },
 	   error: function(xhr, ajaxOptions, thrownError) {
-			 alert(xhr.status);
-			 alert(thrownError);
+			 checkConnection()
 			 $.ui.hideMask();
 			 $.ui.unblockUI();
 	   }
@@ -211,18 +209,14 @@ var connectionStatus = false;
 
 function checkConnection() {
         var networkState = navigator.network.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
-
-        alert('Connection type: ' + states[networkState]);
-}
+		if(networkState == Connection.NONE)
+		{
+			window.sessionStorage.removeItem('apps');
+			window.sessionStorage.removeItem('push');
+			alert('The device has been blocked');
+			$.ui.loadContent("#mainpage",true,true,"slide");
+			return false;
+		}
 
 	
 function register_event_handlers()
@@ -242,6 +236,15 @@ function register_event_handlers()
             var admin_pin = $('input#admin_pin').val();
 			var admin_number = $('input#admin_phone').val();
 			var admin_name = $('input#admin_name').val();
+			if(admin_pin == '' || admin_number == '' || admin_name == '')
+			{
+				navigator.notification.alert(
+								'Please fill all the inputs',  // message
+								'Oops!',            // title
+								'Dismiss'                  // buttonName
+				);
+				return false;
+			}
 			$.ui.blockUI(0.1);
 			$.ui.showMask("Verifying...");
 			//Check data
@@ -276,8 +279,7 @@ function register_event_handlers()
 										 
 								   },
 								   error: function(xhr, ajaxOptions, thrownError) {
-										 alert(xhr.status);
-										 alert(thrownError);
+										 checkConnection()
 										 $.ui.hideMask();
 										 $.ui.unblockUI();
 								   }
@@ -287,14 +289,13 @@ function register_event_handlers()
 						} //The number verification page
 					 }
 					 else{
-						alert('Error: '+data.error_response);
+						checkConnection();
 					//	return false;
 					 }
 					 
 			   },
 			   error: function(xhr, ajaxOptions, thrownError) {
-					 alert(xhr.status);
-					 alert(thrownError);
+					 checkConnection()
 					 $.ui.hideMask();
 					 $.ui.unblockUI();
 			   }
@@ -435,7 +436,6 @@ var app = {
     onDeviceReady: function() {
     //    initPushPlug();
 	    $.ui.disableSideMenu();
-		checkConnection();
 		setupListUpdate();
 	//Check if device has already been registered
 		var hwd_sess = window.localStorage.getItem('token');
