@@ -209,21 +209,21 @@ var appid;
 var connectionStatus = false;
 //$.ui.disableSideMenu();
 
-function checkConnection(){
-	connectionStatus = navigator.onLine;
+function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
 }
 
-setInterval(function () {
-/*
-        checkConnection();
-		if(!connectionStatus){
-			alert('No internet Connection');
-		//	$.ui.loadContent("#mainpage",true,true,"slide");
-		}
-*/
-	connectionStatus = navigator.onLine ? 'online' : 'offline';
-	alert(connectionStatus);
-}, 100);
 	
 function register_event_handlers()
  {   	 
@@ -435,6 +435,7 @@ var app = {
     onDeviceReady: function() {
     //    initPushPlug();
 	    $.ui.disableSideMenu();
+		checkConnection();
 		setupListUpdate();
 	//Check if device has already been registered
 		var hwd_sess = window.localStorage.getItem('token');
