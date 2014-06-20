@@ -345,9 +345,17 @@ text-align: left!important;
 @media all {
   #afui .grid-pad {
     padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+  } 
+  
+	#afui .without-header {
+    padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 20px;
   }
 }
 @media all and (min-width: 0px) {
@@ -473,4 +481,5 @@ text-align: left!important;
 h1.push-container{
 	text-align:center;
 	border-bottom: 1px #ccc solid;
+	padding-bottom: 12px;
 }

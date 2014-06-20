@@ -31,6 +31,23 @@ function decorateHeader(el)
 	$(el).parent().parent().addClass('d_header');
 }
 
+function isBlocked(){
+	$.ajax({
+	   type: "POST",
+	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
+	   data: {token: token },
+	   dataType: "json",
+	   success: function(data) {
+			if(data.blocked){
+				window.sessionStorage.removeItem('apps');
+				window.sessionStorage.removeItem('push');
+				alert('The device has been blocked');
+				$.ui.loadContent("#mainpage",true,true,"slide");
+			}
+	   }
+	});
+}
+
 function fetchPushes()
 {
 $.ui.blockUI(0.1);
@@ -75,6 +92,7 @@ $.ui.blockUI(0.1);
 function showPushes(div)
 {
 	$.ui.enableSideMenu();
+//	isBlocked();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-2').addClass('d_header');
 	var push_sess = window.sessionStorage.getItem('push');
@@ -98,6 +116,10 @@ function showProfile()
 {
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-3').addClass('d_header');
+	var cellNumb = window.localStorage.getItem('subscriber_cell');
+	var cellName = window.localStorage.getItem('subscriber_name');
+	$('.cell_number').text(cellNumb);
+	$('.cell_name').text(cellName);
 }
 
 //Fetch application via ajax
@@ -148,6 +170,7 @@ function fetchApps()
 function showApps(div)
 {
 	$.ui.enableSideMenu();
+//	isBlocked();
 	$('.sub_tab-1,.sub_tab-2,.sub_tab-3').removeClass('d_header');
 	$('.sub_tab-1').addClass('d_header');
 	var app_sess = window.sessionStorage.getItem('apps');
@@ -243,6 +266,8 @@ function register_event_handlers()
 										$.ui.unblockUI();
 										 if(data.error==0){
 											window.localStorage.setItem('navigate','1');
+											window.localStorage.setItem('subscriber_cell',admin_number);
+											window.localStorage.setItem('subscriber_name',admin_name);
 											$.ui.loadContent("#uib_page_2",false,false,"slide");
 										 }else{ alert('You got some error'); return false; }
 										 
