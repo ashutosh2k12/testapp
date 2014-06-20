@@ -213,7 +213,7 @@ function checkConnection() {
 		{
 			window.sessionStorage.removeItem('apps');
 			window.sessionStorage.removeItem('push');
-			alert('The device has been blocked');
+			alert('No internet connecitivity. Try again later');
 			$.ui.loadContent("#mainpage",true,true,"slide");
 			return false;
 		}
