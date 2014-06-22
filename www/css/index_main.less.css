@@ -434,10 +434,10 @@ text-align: left!important;
 #afui .with-label .label-top-right {
   text-align: right !important;
 }
+.profilerr{ padding-top:15px!important; }
 @media all {
   #afui .d-margins {
     margin-top: 5px;
-	padding-top: 15px;
     margin-bottom: 6px;
 	margin: 0 auto;
 	width: 100%;

@@ -125,8 +125,6 @@ function showPushes(div)
 				_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">\
 			<div class="app_name">'+data_push[j].appname+'</div><div class="app_time">'+data_push[j].sent_on+'</div><div class="app_push">'+data_push[j].msg+'</li>';
 			}
-			
-			}
 		}
 		$('ul#pushesfetch').empty().append(_cont);
 	}else{	fetchPushes();	}	
