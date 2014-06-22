@@ -63,12 +63,20 @@ $.ui.blockUI(0.1);
 		 if(pushes.length>0){
 			var _cont = '';
 			var push_array = [];
+			var appid_fetcher = '';
+		var app_fetcher = window.sessionStorage.getItem('app_fetcher');
+		if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
+			appid_fetcher = '';
+		}else{
+			appid_fetcher = app_fetcher;
+		}
+		window.sessionStorage.removeItem('app_fetcher');
 			for(var i=0;i<pushes.length;i++)
 			{
 				var pushdatakey = guid();
 				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, msg: pushes[i].message, appname: pushes[i].app_name, sent_on: pushes[i].created_on};
 				push_array.push(jsdata);
-				if(appid_fetcher != 0){
+				if(appid_fetcher != ''){
 			if(appid_fetcher == data_push[j].appid){
 			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">\
 			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].created_on+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
@@ -106,17 +114,17 @@ function showPushes(div)
 	var data_push = JSON.parse(push_sess);
 	if(data_push.length > 0){
 		var _cont = '';
-		var appid_fetcher = 0;
+		var appid_fetcher = '';
 		var app_fetcher = window.sessionStorage.getItem('app_fetcher');
-		if(app_fetcher === undefined || app_fetcher === null || app_fetcher < 1){
-			appid_fetcher = 0;
+		if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
+			appid_fetcher = '';
 		}else{
 			appid_fetcher = app_fetcher;
 		}
 		window.sessionStorage.removeItem('app_fetcher');
 		for(var j=0;j<data_push.length;j++)
 		{
-			if(appid_fetcher != 0){
+			if(appid_fetcher != ''){
 			if(appid_fetcher == data_push[j].appid){
 			_cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+data_push[j].pushid+'">\
 			<div class="app_name">'+data_push[j].appname+'</div><div class="app_time">'+data_push[j].sent_on+'</div><div class="app_push">'+data_push[j].msg+'</li>';	
@@ -131,10 +139,12 @@ function showPushes(div)
 	}
 }
 
-$('.list-apps').on('click',function(){
+$(document).on("click", ".list-apps", function(evt)
+{
 	var appid = $(this).data('appid');
 	window.sessionStorage.setItem('app_fetcher',appid);
 });
+
 //Profile
 function showProfile()
 {
