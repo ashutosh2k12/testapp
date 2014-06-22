@@ -142,7 +142,7 @@ function showPushes(div)
 
 function appfetcher(obj){
 	var app_clicked = $(obj).parent().data('appid');
-	alert('appid='+app_clicked);
+//	alert('appid='+app_clicked);
 	window.sessionStorage.setItem('app_fetcher',app_clicked);
 	$.ui.loadContent("#uib_page3",false,false,"slide");
 }
