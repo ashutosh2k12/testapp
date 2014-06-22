@@ -29,6 +29,7 @@ font-size: 12px;
 }
 div#push-stat {
 width: 100%;
+padding-top:15px;
 margin: 0 auto;
 text-align: center;
 }
@@ -436,6 +437,7 @@ text-align: left!important;
 @media all {
   #afui .d-margins {
     margin-top: 5px;
+	padding-top: 15px;
     margin-bottom: 6px;
 	margin: 0 auto;
 	width: 100%;
