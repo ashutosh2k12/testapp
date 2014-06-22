@@ -218,7 +218,7 @@ function showApps(div)
 		for(var j=0;j<data_app.length;j++)
 		{
 			_cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-appid="'+data_app[j].appid+'" data-ver="0">\
-										<a href="#uib_page_3" data-transition="slide">'+data_app[j].appname+'</a></li>';
+										<a onclick="appfetcher(this)" data-transition="slide">'+data_app[j].appname+'</a></li>';
 		}
 		$('ul#pushes').empty().append(_cont);
 	}else{	fetchApps();	}	
