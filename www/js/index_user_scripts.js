@@ -140,11 +140,11 @@ function showPushes(div)
 	}
 }
 
+
 function appfetcher(obj){
+
 	var app_clicked = $(obj).parent().data('appid');
-//	alert('appid='+app_clicked);
 	window.sessionStorage.setItem('app_fetcher',app_clicked);
-	$.ui.loadContent("#uib_page3",false,false,"slide");
 }
 
 //Profile
@@ -161,8 +161,8 @@ function showProfile()
 //Fetch application via ajax
 function fetchApps()
 {
-	$.ui.blockUI(0.1);
-	$.ui.showMask("Fetching applications...");
+//	$.ui.blockUI(0.1);
+//	$.ui.showMask("Fetching applications...");
 	//Check data
 	$.ajax({
 	   type: "POST",
@@ -181,7 +181,7 @@ function fetchApps()
 				var appdata = { appid:data.apps[i].appid, appname : data.apps[i].app_name, app_desc: data.apps[i].app_desc, pin:data.apps[i].pin};
 				apps_array.push(appdata);
 				 _cont += '<li class="widget uib_w_list list-apps app-fetch" data-uib="app_framework/listitem" data-appid="'+data.apps[i].appid+'" data-ver="0">\
-										<a onclick="appfetcher(this)" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
+										<a onclick="appfetcher(this)" href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				var appdataval = JSON.stringify(apps_array);
 				window.sessionStorage.setItem('apps', appdataval);
@@ -218,7 +218,7 @@ function showApps(div)
 		for(var j=0;j<data_app.length;j++)
 		{
 			_cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-appid="'+data_app[j].appid+'" data-ver="0">\
-										<a onclick="appfetcher(this)" data-transition="slide">'+data_app[j].appname+'</a></li>';
+										<a onclick="appfetcher(this)" href="#uib_page_3" data-transition="slide">'+data_app[j].appname+'</a></li>';
 		}
 		$('ul#pushes').empty().append(_cont);
 	}else{	fetchApps();	}	
