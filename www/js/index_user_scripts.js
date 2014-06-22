@@ -64,13 +64,7 @@ $.ui.blockUI(0.1);
 			var _cont = '';
 			var push_array = [];
 			var appid_fetcher = '';
-		var app_fetcher = window.sessionStorage.getItem('app_fetcher');
-		if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
-			appid_fetcher = '';
-		}else{
-			appid_fetcher = app_fetcher;
-		}
-		window.sessionStorage.removeItem('app_fetcher');
+			appid_fetcher = app_clicked;
 			for(var i=0;i<pushes.length;i++)
 			{
 				var pushdatakey = guid();
@@ -115,13 +109,7 @@ function showPushes(div)
 	if(data_push.length > 0){
 		var _cont = '';
 		var appid_fetcher = '';
-		var app_fetcher = window.sessionStorage.getItem('app_fetcher');
-		if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
-			appid_fetcher = '';
-		}else{
-			appid_fetcher = app_fetcher;
-		}
-		window.sessionStorage.removeItem('app_fetcher');
+		appid_fetcher = app_clicked;
 		for(var j=0;j<data_push.length;j++)
 		{
 			if(appid_fetcher != ''){
@@ -138,11 +126,10 @@ function showPushes(div)
 	}else{	fetchPushes();	}	
 	}
 }
-
+var app_clicked = '';
 $(document).on("click", ".list-apps", function(evt)
 {
-	var appid = $(this).data('appid');
-	window.sessionStorage.setItem('app_fetcher',appid);
+	var app_clicked = $(this).data('appid');
 });
 
 //Profile
