@@ -1,8 +1,6 @@
  function register_events_handlers()
  {
     
-    
-         
         $(document).on("click", ".uib_w_14", function(evt)
         {
          activate_subpage("#uib_page_3"); 
@@ -143,7 +141,7 @@ function fetchApps()
 				//
 				var appdata = { appid:data.apps[i].appid, appname : data.apps[i].app_name, app_desc: data.apps[i].app_desc, pin:data.apps[i].pin};
 				apps_array.push(appdata);
-				 _cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
+				 _cont += '<li class="widget uib_w_list list-apps app-fetch" data-uib="app_framework/listitem" data-ver="0">\
 										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				var appdataval = JSON.stringify(apps_array);

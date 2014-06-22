@@ -32,6 +32,17 @@ display:block;
 .table-thing{
 margin-bottom: 10px!important;
 }
+ul#pushes{
+	border-left: 1px #CACACA solid!important;
+	border-right: 1px #CACACA solid!important;
+	background: #fff!important;
+}
+li.list-push{
+	background: #fff;
+	border: 1px solid #ccc;
+	margin: 10px;
+	padding-top: 8px!important;
+}
 /* grid */
 .grid {
   width: 100%;
@@ -202,6 +213,9 @@ body:not(#afui) .upage-outer {
 /* .upage-content, .upage-outer { position: fixed; height:100%; } */
 .upage {
   overflow-x: hidden;
+}
+#uib_page_3,#uib_page_2{
+	background: #ccc!important;
 }
 .upage-content {
   z-index: 1;
@@ -469,6 +483,8 @@ text-align: left!important;
     padding-left: 0px !important;
   }
 }
+
+.app-fetch{ font-weight: bold; }
 
 h1.push-container{
 	text-align:center;
