@@ -161,8 +161,8 @@ function showProfile()
 //Fetch application via ajax
 function fetchApps()
 {
-//	$.ui.blockUI(0.1);
-//	$.ui.showMask("Fetching applications...");
+	$.ui.blockUI(0.1);
+	$.ui.showMask("Fetching applications...");
 	//Check data
 	$.ajax({
 	   type: "POST",
