@@ -64,7 +64,13 @@ $.ui.blockUI(0.1);
 			var _cont = '';
 			var push_array = [];
 			var appid_fetcher = '';
-			appid_fetcher = app_clicked;
+			var app_fetcher = window.sessionStorage.getItem('app_fetcher');
+			window.sessionStorage.removeItem('app_fetcher');
+			if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
+				appid_fetcher = '';
+			}else{
+				appid_fetcher = app_fetcher;
+			}
 			for(var i=0;i<pushes.length;i++)
 			{
 				var pushdatakey = guid();
@@ -109,7 +115,14 @@ function showPushes(div)
 	if(data_push.length > 0){
 		var _cont = '';
 		var appid_fetcher = '';
-		appid_fetcher = app_clicked;
+		var app_fetcher = window.sessionStorage.getItem('app_fetcher');
+		window.sessionStorage.removeItem('app_fetcher');
+		if(app_fetcher === undefined || app_fetcher === null || app_fetcher === ''){
+			appid_fetcher = '';
+		}else{
+			appid_fetcher = app_fetcher;
+		}
+		
 		for(var j=0;j<data_push.length;j++)
 		{
 			if(appid_fetcher != ''){
@@ -126,11 +139,12 @@ function showPushes(div)
 	}else{	fetchPushes();	}	
 	}
 }
-var app_clicked = '';
-$(document).on("click", ".list-apps", function(evt)
-{
-	var app_clicked = $(this).data('appid');
-});
+
+function appfetcher(obj){
+	var app_clicked = $(obj).data('appid');
+	window.sessionStorage.setItem('app_fetcher',appid);
+	$.ui.loadContent("#uib_page3",false,false,"slide");
+}
 
 //Profile
 function showProfile()
@@ -166,7 +180,7 @@ function fetchApps()
 				var appdata = { appid:data.apps[i].appid, appname : data.apps[i].app_name, app_desc: data.apps[i].app_desc, pin:data.apps[i].pin};
 				apps_array.push(appdata);
 				 _cont += '<li class="widget uib_w_list list-apps app-fetch" data-uib="app_framework/listitem" data-appid="'+data.apps[i].appid+'" data-ver="0">\
-										<a href="#uib_page_3" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
+										<a onclick="appfetcher(this)" data-transition="slide">'+data.apps[i].app_name+'</a></li>';
 				}
 				var appdataval = JSON.stringify(apps_array);
 				window.sessionStorage.setItem('apps', appdataval);
