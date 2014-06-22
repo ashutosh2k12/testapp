@@ -19,6 +19,15 @@ body {
 .subscriber_button{
 width: auto;
 }
+div.app_name {
+font-weight: bold;
+}
+div.app_time {
+margin-left: 15%;
+color: #7A7A83;
+font-size: 12px;
+}
+
 /*logo */
 .homerlogo{
 margin:0 auto;
