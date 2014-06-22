@@ -27,7 +27,26 @@ margin-left: 15%;
 color: #7A7A83;
 font-size: 12px;
 }
-
+div#push-stat {
+width: 100%;
+margin: 0 auto;
+text-align: center;
+}
+div.push_name {
+font-size: 20px;
+border-bottom: 1px #ccc solid;
+}
+span.time {
+color: #999;
+}
+div.push_details {
+color: #247579;
+}
+div.push_details span {
+display: block;
+padding: 20px 20px 0px 20px;
+color: #000;
+}
 /*logo */
 .homerlogo{
 margin:0 auto;
@@ -297,6 +316,10 @@ div.table-center {
 width: 70%;
 margin: 0 auto;
 }
+div.table-center.text-center{
+text-align: center;
+}
+p.profiler{ font-size: 20px; }
 label.front-form{
 text-align: left!important;
 }
