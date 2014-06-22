@@ -366,7 +366,7 @@ function register_event_handlers()
 			{
 				if(data_push[j].pushid==push_key)
 				{
-					$('#push-stat').html('<div class="push_name">Push Received On: <span class="time">'+data_push[j].sent_on+'</span></div> <div class="push_details"><span>'+msg+'</span><span class="push_appdet">Sent via: '+data_push[j].appname+'</span></div>');
+					$('#push-stat').html('<div class="push_name">Push Received On: <span class="time">'+data_push[j].sent_on+'</span></div> <div class="push_details"><span>'+data_push[j].msg+'</span><span class="push_appdet">Sent via: '+data_push[j].appname+'</span></div>');
 					
 				}
 			}

@@ -244,7 +244,12 @@ body:not(#afui) .upage-outer {
   overflow-x: hidden;
 }
 #uib_page_3,#uib_page_2{
-	background: #ccc!important;
+/*	background: #ccc!important;	*/
+    background-image: url("../images/background.png")!important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed!important;
+    background-size: cover!important;
 }
 .upage-content {
   z-index: 1;
