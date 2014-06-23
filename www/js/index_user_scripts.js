@@ -295,6 +295,7 @@ function register_event_handlers()
 				$.ui.unblockUI();
 					 if(data.error==0){
 						if(data.hardware==true){	
+							window.localStorage.setItem('navigate','1');
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
 						else{	
