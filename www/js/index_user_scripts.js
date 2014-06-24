@@ -293,7 +293,6 @@ function register_event_handlers()
 			   success: function(data) {
 				$.ui.hideMask();
 				$.ui.unblockUI();
-				alert(data.error);
 					 if(data.error==0){
 						if(data.hardware==true){	
 							window.localStorage.setItem('navigate','1');
@@ -322,7 +321,7 @@ function register_event_handlers()
 			})
         });
   
-function subs(parentid,appid,admin_number,admin_name){
+function subscribeUser(parentid,appid,admin_number,admin_name){
 $.ajax({
 	   type: "POST",
 	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
