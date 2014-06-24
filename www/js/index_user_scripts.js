@@ -343,6 +343,7 @@ function register_event_handlers()
 					 checkConnection()
 					 $.ui.hideMask();
 					 $.ui.unblockUI();
+					 alert('error ajax='+ajaxOptions);
 			   }
 			})
         });
