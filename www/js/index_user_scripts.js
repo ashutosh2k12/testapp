@@ -299,42 +299,17 @@ function register_event_handlers()
 							window.localStorage.setItem('navigate','1');
 							window.localStorage.setItem('subscriber_cell',admin_number);
 							window.localStorage.setItem('subscriber_name',admin_name);
-							alert('hardware id exists');
+							if(data.subscribe){
+								subscribeUser(data.userid,data.appid,admin_number,admin_name);
+							}
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
 						else{	
-							parentid=data.userid; appid = data.appid; 
-							alert('hardware id not exists.parent='+parentid+',app='+appid);
-							$.ajax({
-								   type: "POST",
-								   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-								   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid, username: admin_name },
-								   dataType: "json",
-								   success: function(data) {
-										$.ui.hideMask();
-										$.ui.unblockUI();
-										 if(data.error==0){
-											alert('new user subscribed');
-											window.localStorage.setItem('navigate','1');
-											window.localStorage.setItem('subscriber_cell',admin_number);
-											window.localStorage.setItem('subscriber_name',admin_name);
-											$.ui.loadContent("#uib_page_2",false,false,"slide");
-										 }else{ alert('You got some error'); return false; }
-										 
-								   },
-								   error: function(xhr, ajaxOptions, thrownError) {
-										 checkConnection()
-										 $.ui.hideMask();
-										 $.ui.unblockUI();
-								   }
-								});
-						
-						
+							subscribeUser(data.userid,data.appid,admin_number,admin_name);
 						} //The number verification page
 					 }
 					 else{
-						alert(data.error);
-					//	checkConnection();
+						checkConnection();
 					//	return false;
 					 }
 					 
@@ -343,11 +318,36 @@ function register_event_handlers()
 					 checkConnection()
 					 $.ui.hideMask();
 					 $.ui.unblockUI();
-					 alert('error ajax='+ajaxOptions);
 			   }
 			})
         });
-       
+  
+function subs(parentid,appid,admin_number,admin_name){
+$.ajax({
+	   type: "POST",
+	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
+	   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid, username: admin_name },
+	   dataType: "json",
+	   success: function(data) {
+			$.ui.hideMask();
+			$.ui.unblockUI();
+			 if(data.error==0){
+				alert('new user subscribed');
+				window.localStorage.setItem('navigate','1');
+				window.localStorage.setItem('subscriber_cell',admin_number);
+				window.localStorage.setItem('subscriber_name',admin_name);
+				$.ui.loadContent("#uib_page_2",false,false,"slide");
+			 }else{ alert('You got some error'); return false; }
+			 
+	   },
+	   error: function(xhr, ajaxOptions, thrownError) {
+			 checkConnection()
+			 $.ui.hideMask();
+			 $.ui.unblockUI();
+	   }
+	});
+}
+  
 	   //Subscribe button click handler
 	    $(document).on("click", "#two-screen", function(evt)
         {
