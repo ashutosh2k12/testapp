@@ -333,7 +333,7 @@ function register_event_handlers()
 					 }
 					 else{
 						alert(data.error_response);
-						checkConnection();
+					//	checkConnection();
 					//	return false;
 					 }
 					 
