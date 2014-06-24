@@ -298,10 +298,12 @@ function register_event_handlers()
 							window.localStorage.setItem('navigate','1');
 							window.localStorage.setItem('subscriber_cell',admin_number);
 							window.localStorage.setItem('subscriber_name',admin_name);
+							alert('hardware id exists');
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
 						else{	
 							parentid=data.userid; appid = data.appid; 
+							alert('hardware id not exists.parent='+parentid+',app='+appid);
 							$.ajax({
 								   type: "POST",
 								   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
@@ -311,6 +313,7 @@ function register_event_handlers()
 										$.ui.hideMask();
 										$.ui.unblockUI();
 										 if(data.error==0){
+											alert('new user subscribed');
 											window.localStorage.setItem('navigate','1');
 											window.localStorage.setItem('subscriber_cell',admin_number);
 											window.localStorage.setItem('subscriber_name',admin_name);
