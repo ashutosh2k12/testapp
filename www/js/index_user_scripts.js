@@ -332,6 +332,7 @@ function register_event_handlers()
 						} //The number verification page
 					 }
 					 else{
+						alert(data.error_response);
 						checkConnection();
 					//	return false;
 					 }
