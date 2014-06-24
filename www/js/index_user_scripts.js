@@ -293,6 +293,7 @@ function register_event_handlers()
 			   success: function(data) {
 				$.ui.hideMask();
 				$.ui.unblockUI();
+				alert(data.error);
 					 if(data.error==0){
 						if(data.hardware==true){	
 							window.localStorage.setItem('navigate','1');
@@ -332,7 +333,7 @@ function register_event_handlers()
 						} //The number verification page
 					 }
 					 else{
-						alert(data.error_response);
+						alert(data.error);
 					//	checkConnection();
 					//	return false;
 					 }
