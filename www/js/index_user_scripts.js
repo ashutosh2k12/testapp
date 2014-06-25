@@ -24,13 +24,13 @@ window.AddNewApp = function()
 }
 
 function showIndex(){
+	$('.mobile-name,.mobile-cell').hide();
 	var cell = window.localStorage.getItem('subscriber_cell');
 	var numb = window.localStorage.getItem('subscriber_name');
 	if(typeof cell != 'undefined' && cell != null && cell != '' && typeof numb != 'undefined' && numb != null && numb != '')
 	{
 		alert('index='+cell+',numb='+numb);
-		$('input.mobile-name').hide();
-		$('input.mobile-cell').hide();
+		$('.mobile-name,.mobile-cell').hide();
 	}
 }
 
