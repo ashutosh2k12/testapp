@@ -244,6 +244,16 @@ var appid;
 var connectionStatus = false;
 //$.ui.disableSideMenu();
 
+function showIndex(div){
+	var cell = window.sessionStorage.getItem('subscriber_cell');
+	var numb = window.sessionStorage.getItem('subscriber_name');
+	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
+	{
+		$('inpur.mobile-name').css('display','none');
+		$('inpur.mobile-cell').css('display','none');
+	}
+}
+		
 function checkConnection() {
         var networkState = navigator.network.connection.type;
 		if(networkState == Connection.NONE)
@@ -337,17 +347,6 @@ function register_event_handlers()
 			}
 		}
 		
-		function showIndex(div){
-			alert('Index Page');
-			var cell = window.sessionStorage.getItem('subscriber_cell');
-			var numb = window.sessionStorage.getItem('subscriber_name');
-			if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
-			{
-				$('inpur.mobile-name').css('display','none');
-				$('inpur.mobile-cell').css('display','none');
-			}
-		}
-		
 		$(document).on("click", ".list-push", function(evt)
         {
 		//	alert('hello');
@@ -359,7 +358,6 @@ function register_event_handlers()
 				if(data_push[j].pushid==push_key)
 				{
 					$('#push-stat').html('<div class="push_name">Push Received On: <span class="time">'+data_push[j].sent_on+'</span></div> <div class="push_details"><span>'+data_push[j].msg+'</span><span class="push_appdet">Sent via: '+data_push[j].appname+'</span></div>');
-					
 				}
 			}
 		//	$.ui.updatePanel("#push-stat","This is the new content");
