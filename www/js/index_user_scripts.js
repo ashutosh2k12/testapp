@@ -24,8 +24,8 @@ window.AddNewApp = function()
 }
 
 function showIndex(){
-	var cell = window.sessionStorage.getItem('subscriber_cell');
-	var numb = window.sessionStorage.getItem('subscriber_name');
+	var cell = window.localStorage.getItem('subscriber_cell');
+	var numb = window.localStorage.getItem('subscriber_name');
 	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
 	{
 		alert('index');
