@@ -20,7 +20,19 @@ window.AddNewApp = function()
 //	window.localStorage.setItem('navigate','0');
 	window.sessionStorage.removeItem('apps');
 	window.sessionStorage.removeItem('push');
+	showIndex();
 	$.ui.loadContent("#mainpage",true,true,"slide");
+}
+
+function showIndex(){
+	alert('index');
+	var cell = window.sessionStorage.getItem('subscriber_cell');
+	var numb = window.sessionStorage.getItem('subscriber_name');
+	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
+	{
+		$('inpur.mobile-name').css('display','none');
+		$('inpur.mobile-cell').css('display','none');
+	}
 }
 
 function decorateHeader(el)
@@ -243,16 +255,6 @@ var parentid;
 var appid;
 var connectionStatus = false;
 //$.ui.disableSideMenu();
-
-function showIndex(div){
-	var cell = window.sessionStorage.getItem('subscriber_cell');
-	var numb = window.sessionStorage.getItem('subscriber_name');
-	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
-	{
-		$('inpur.mobile-name').css('display','none');
-		$('inpur.mobile-cell').css('display','none');
-	}
-}
 		
 function checkConnection() {
         var networkState = navigator.network.connection.type;
