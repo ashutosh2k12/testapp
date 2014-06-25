@@ -28,7 +28,7 @@ function showIndex(){
 	var numb = window.localStorage.getItem('subscriber_name');
 	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
 	{
-		alert('index');
+		alert('index='+cell+',numb='+numb);
 		$('inpur.mobile-name').css('display','none');
 		$('inpur.mobile-cell').css('display','none');
 	}
