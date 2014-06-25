@@ -306,7 +306,8 @@ function register_event_handlers()
 					}	 
 			   },
 			   error: function(xhr, ajaxOptions, thrownError) {
-					 checkConnection()
+					 checkConnection();
+					 alert(ajaxOptions);
 					 $.ui.hideMask();
 					 $.ui.unblockUI();
 			   }
