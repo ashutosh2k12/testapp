@@ -288,30 +288,22 @@ function register_event_handlers()
 			$.ajax({
 			   type: "POST",
 			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
-			   data: {pin: admin_pin, hardwareid: token },
+			   data: {pin:admin_pin,hardwareid:token,mobile:admin_number,name:admin_name},
 			   dataType: "json",
 			   success: function(data) {
-				$.ui.hideMask();
-				$.ui.unblockUI();
-					 if(data.error==0){
-						if(data.hardware==true){	
-							window.localStorage.setItem('navigate','1');
-							window.localStorage.setItem('subscriber_cell',admin_number);
-							window.localStorage.setItem('subscriber_name',admin_name);
-							if(data.subscribe){
-								subscribeUser(data.userid,data.appid,admin_number,admin_name);
-							}
-							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
-						}
-						else{	
-							subscribeUser(data.userid,data.appid,admin_number,admin_name);
-						} //The number verification page
-					 }
-					 else{
-						checkConnection();
+					$.ui.hideMask();
+					$.ui.unblockUI();
+					if(data.error==0){
+						window.localStorage.setItem('navigate','1');
+						window.localStorage.setItem('subscriber_cell',admin_number);
+						window.localStorage.setItem('subscriber_name',admin_name);
+						$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
+					}
+					else{
+						alert(data.error_response);
+					//	checkConnection();
 					//	return false;
-					 }
-					 
+					}	 
 			   },
 			   error: function(xhr, ajaxOptions, thrownError) {
 					 checkConnection()
@@ -320,63 +312,6 @@ function register_event_handlers()
 			   }
 			})
         });
-  
-function subscribeUser(parentid,appid,admin_number,admin_name){
-$.ajax({
-	   type: "POST",
-	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-	   data: {number:admin_number, parentid: parentid, hardwareid: token, appid: appid, username: admin_name },
-	   dataType: "json",
-	   success: function(data) {
-			$.ui.hideMask();
-			$.ui.unblockUI();
-			 if(data.error==0){
-				alert('new user subscribed');
-				window.localStorage.setItem('navigate','1');
-				window.localStorage.setItem('subscriber_cell',admin_number);
-				window.localStorage.setItem('subscriber_name',admin_name);
-				$.ui.loadContent("#uib_page_2",false,false,"slide");
-			 }else{ alert('You got some error'); return false; }
-			 
-	   },
-	   error: function(xhr, ajaxOptions, thrownError) {
-			 checkConnection()
-			 $.ui.hideMask();
-			 $.ui.unblockUI();
-	   }
-	});
-}
-  
-	   //Subscribe button click handler
-	    $(document).on("click", "#two-screen", function(evt)
-        {
-			 //Get Prev Data
-            var user_cell = $('input#mobile').val(); //Get email and check if that is true
-			$.ui.blockUI(0.1)
-			$.ui.showMask("Registering...");
-			//Check data
-			$.ajax({
-			   type: "POST",
-			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-			   data: {number:user_cell, parentid: parentid, hardwareid: token, appid: appid },
-			   dataType: "json",
-			   success: function(data) {
-					$.ui.hideMask();
-					$.ui.unblockUI();
-					 if(data.error==0){
-						window.localStorage.setItem('navigate','1');
-						$.ui.loadContent("#uib_page_2",false,false,"slide");
-					 }else{ alert('You got some error'); return false; }
-					 
-			   },
-			   error: function(xhr, ajaxOptions, thrownError) {
-					 alert(xhr.status);
-					 alert(thrownError);
-					 $.ui.hideMask();
-					 $.ui.unblockUI();
-			   }
-			})
-		});
 		
 		$(document).on("click", ".list-apps", function(evt)
         {
@@ -398,6 +333,16 @@ $.ajax({
 			}else{
 				$.ui.loadContent("#uib_page_1",false,false,"slide");
 				return false;
+			}
+		}
+		
+		function showIndex(div){
+			var cell = window.sessionStorage.getItem('subscriber_cell');
+			var numb = window.sessionStorage.getItem('subscriber_name');
+			if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
+			{
+				$('inpur.mobile-name').css('display','none');
+				$('inpur.mobile-cell').css('display','none');
 			}
 		}
 		
