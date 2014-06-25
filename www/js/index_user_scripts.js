@@ -26,11 +26,11 @@ window.AddNewApp = function()
 function showIndex(){
 	var cell = window.localStorage.getItem('subscriber_cell');
 	var numb = window.localStorage.getItem('subscriber_name');
-	if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
+	if(typeof cell != 'undefined' && cell != null && cell != '' && typeof numb != 'undefined' && numb != null && numb != '')
 	{
 		alert('index='+cell+',numb='+numb);
-		$('inpur.mobile-name').css('display','none');
-		$('inpur.mobile-cell').css('display','none');
+		$('input.mobile-name').hide();
+		$('input.mobile-cell').hide();
 	}
 }
 
