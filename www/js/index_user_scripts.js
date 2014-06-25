@@ -338,6 +338,7 @@ function register_event_handlers()
 		}
 		
 		function showIndex(div){
+			alert('Index Page');
 			var cell = window.sessionStorage.getItem('subscriber_cell');
 			var numb = window.sessionStorage.getItem('subscriber_name');
 			if(typeof cell != 'undefined' && cell != '' && typeof numb != 'undefined' && numb != '')
