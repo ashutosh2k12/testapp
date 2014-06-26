@@ -28,7 +28,7 @@ color: #7A7A83;
 font-size: 12px;
 }
 #back-screen{
-display:none;
+display:none!important;
 margin-top: 20px;
 width: 100%;
 }
