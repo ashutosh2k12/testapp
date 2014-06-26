@@ -29,11 +29,9 @@ function showIndex(){
 	if(typeof cell != 'undefined' && cell != null && cell != '' && typeof numb != 'undefined' && numb != null && numb != '')
 	{
 		$('.mobile-name,.mobile-cell').hide();
-		$('#back-screen').attr('style','display:none!important');
+		$('#back-screen').attr('style','display:block!important');
 	}
 }
-
-
 
 function decorateHeader(el)
 {
