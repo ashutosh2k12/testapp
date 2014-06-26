@@ -27,6 +27,11 @@ margin-left: 15%;
 color: #7A7A83;
 font-size: 12px;
 }
+#back-screen{
+display:none;
+margin-top: 20px;
+width: 100%;
+}
 div#push-stat {
 width: 100%;
 padding-top:15px;

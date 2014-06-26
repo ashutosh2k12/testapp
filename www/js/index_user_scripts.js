@@ -29,8 +29,11 @@ function showIndex(){
 	if(typeof cell != 'undefined' && cell != null && cell != '' && typeof numb != 'undefined' && numb != null && numb != '')
 	{
 		$('.mobile-name,.mobile-cell').hide();
+		$('#back-screen').show();
 	}
 }
+
+
 
 function decorateHeader(el)
 {
@@ -86,7 +89,7 @@ $.ui.blockUI(0.1);
 				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, msg: pushes[i].message, appname: pushes[i].app_name, sent_on: pushes[i].created_on};
 				push_array.push(jsdata);
 				if(appid_fetcher != ''){
-			if(appid_fetcher == data_push[j].appid){
+			if(appid_fetcher == pushes[i].appid){
 			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">\
 			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].created_on+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
 			} }else{
@@ -282,10 +285,36 @@ function register_event_handlers()
             var admin_pin = $('input#admin_pin').val();
 			var admin_number = $('input#admin_phone').val();
 			var admin_name = $('input#admin_name').val();
-			if(admin_pin == '' || admin_number == '' || admin_name == '')
+			var cell = window.localStorage.getItem('subscriber_cell');
+			var numb = window.localStorage.getItem('subscriber_name');
+			if(typeof cell == 'undefined' || cell == null || cell == '' || typeof numb == 'undefined' || numb == null || numb == '')
+			{
+				if(admin_number == '' || admin_name == '')
+				{
+					navigator.notification.alert(
+									'Please fill all the inputs',  // message
+									'Oops!',            // title
+									'Dismiss'                  // buttonName
+					);
+					return false;
+				}
+			}else{
+				admin_number = cell;
+				admin_name = numb;
+			}
+			if(admin_pin == '')
 			{
 				navigator.notification.alert(
-								'Please fill all the inputs',  // message
+								'Please enter your PIN',  // message
+								'Oops!',            // title
+								'Dismiss'                  // buttonName
+				);
+				return false;
+			}
+			if(admin_number.length != 10)
+			{
+				navigator.notification.alert(
+								'Please enter only 10 digits number only',  // message
 								'Oops!',            // title
 								'Dismiss'                  // buttonName
 				);
