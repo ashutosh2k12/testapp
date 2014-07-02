@@ -198,7 +198,6 @@ function fetchApps()
 				$('ul#pushes').empty().append(_cont);
 			 }
 			 else{
-				alert('Error: '+data.error_response);
 			//	return false;
 			 }
 			 
@@ -342,8 +341,7 @@ function register_event_handlers()
 					}	 
 			   },
 			   error: function(xhr, ajaxOptions, thrownError) {
-					 checkConnection();
-					 alert(ajaxOptions);
+			//		 checkConnection();
 					 $.ui.hideMask();
 					 $.ui.unblockUI();
 			   }
