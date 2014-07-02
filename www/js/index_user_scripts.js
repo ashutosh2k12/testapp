@@ -172,7 +172,7 @@ function showProfile()
 function fetchApps()
 {
 	$.ui.blockUI(0.1);
-	$.ui.showMask("Fetching applications...");
+	$.ui.showMask("Fetching circles...");
 	//Check data
 	$.ajax({
 	   type: "POST",
