@@ -84,15 +84,15 @@ $.ui.blockUI(0.1);
 			for(var i=0;i<pushes.length;i++)
 			{
 				var pushdatakey = guid();
-				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, msg: pushes[i].message, appname: pushes[i].app_name, sent_on: pushes[i].created_on};
+				var jsdata = { pushid:pushdatakey, appid : pushes[i].appid, msg: pushes[i].message, appname: pushes[i].app_name, sent_on: pushes[i].createdon};
 				push_array.push(jsdata);
 				if(appid_fetcher != ''){
 			if(appid_fetcher == pushes[i].appid){
 			 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">\
-			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].created_on+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
+			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].createdon+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
 			} }else{
 				 _cont += '<li class="widget uib_w_list list-push" data-uib="app_framework/listitem" data-ver="0" data-push="'+pushdatakey+'">\
-			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].created_on+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
+			 <div class="app_name">'+pushes[i].app_name+'</div><div class="app_time">'+pushes[i].createdon+'</div><div class="app_push">'+pushes[i].message+'</div></li>';
 			}
 			}
 			
