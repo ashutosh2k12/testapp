@@ -42,7 +42,7 @@ function decorateHeader(el)
 function isBlocked(){
 	$.ajax({
 	   type: "POST",
-	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
+	   url: "http://notifisolutions.com/admin/rest/user",
 	   data: {token: token },
 	   dataType: "json",
 	   success: function(data) {
@@ -63,7 +63,7 @@ $.ui.blockUI(0.1);
 	//Check data
 	$.ajax({
 	   type: "POST",
-	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/pushes",
+	   url: "http://notifisolutions.com/admin/rest/pushes",
 	   data: {token: token},
 	   dataType: "json",
 	   success: function(data) {
@@ -176,7 +176,7 @@ function fetchApps()
 	//Check data
 	$.ajax({
 	   type: "POST",
-	   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/apps",
+	   url: "http://notifisolutions.com/admin/rest/apps",
 	   data: {token: token},
 	   dataType: "json",
 	   success: function(data) {
@@ -322,7 +322,7 @@ function register_event_handlers()
 			//Check data
 			$.ajax({
 			   type: "POST",
-			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
+			   url: "http://notifisolutions.com/admin/rest/user",
 			   data: {pin:admin_pin,hardwareid:token,mobile:admin_number,name:admin_name},
 			   dataType: "json",
 			   success: function(data) {
